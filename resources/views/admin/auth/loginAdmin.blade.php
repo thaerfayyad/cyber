@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ANTENNA CAMPUS</title>
+    <title>Admin Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('site/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('site/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -26,35 +26,48 @@
                         <div class="logo_img">
                             <img src="{{asset('site/img/logo.png')}}" class="logo_design">
                         </div>
-                        <div class="form_login">
-                            <div class="input_div">
-                                <input type="text" class="input_form" placeholder="User Name or Email">
-                            </div>
 
-                            <div class="input_div">
-                                <input type="password" class="input_form" placeholder="Password">
-                            </div>
+                        @include('admin.include.alerts.success')
+                        @include('admin.include.alerts.errors')
 
-                            <div class="data_form">
-                                <div class="remember_div">
-                                    <input type="checkbox" class="remember">
-                                    <p class="remember-txt">Remember me</p>
-                                </div>
-                                <div class="forget_div">
-                                    <a href="./forget.html"><p class="forget-txt">Forget password?</p></a>
+                        <form method="POST" action="{{route('admin.login')}}">
+                            @csrf
+                            <div class="form_login">
+                                <div class="input_div">
+                                    <input type="text" class="input_form" name="email" placeholder="User Name or Email">
+                                    @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
-                            </div>
+                                <div class="input_div">
+                                    <input type="password" class="input_form" name="password" placeholder="Password">
+                                    @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
 
-                            <div class="btn_login">
-                                <button class="login_now">Login</button>
-                            </div>
+                                <div class="data_form">
+                                    <div class="remember_div">
+                                        <input type="checkbox" class="remember">
+                                        <p class="remember-txt">Remember me</p>
+                                    </div>
+                                    <div class="forget_div">
+                                        <a href="./forget.html"><p class="forget-txt">Forget password?</p></a>
+                                    </div>
+
+                                </div>
+
+                                <div class="btn_login">
+                                    <button class="login_now">Login</button>
+                                </div>
 
 
-                            <div class="have_account">
-                                <p>Don't have an account? <span><a href="#">ٍSign in</a></span></p>
+                                <div class="have_account">
+                                    <p>Don't have an account? <span><a href="#">Sign in</a></span></p>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 right_div">

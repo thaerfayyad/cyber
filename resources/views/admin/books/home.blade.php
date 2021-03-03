@@ -47,7 +47,7 @@
                                         <td>{{$val->name}}</td>
                                         <td>
                                             <img src="{{asset('upload/books/image').'/'.$val->photo}}" alt="{{$val->photo}}" width="70px" height="70"></td>
-                                        </td>
+
                                         <td>{{@$val->category->name}}</td>
                                         <td>{{$val->details}}</td>
                                         <td>{{$val->created_at}}</td>
@@ -55,6 +55,8 @@
 
                                     </tr>
                                 @endforeach
+
+
 
                                 </tbody>
 

@@ -21,6 +21,8 @@
             <link href="{{asset('admin/assets/libs/morris/morris.css')}}" rel="stylesheet">
         @stack('style')
         <!-- Custom CSS -->
+
+            <link rel="stylesheet" href=" https://cdnjs.com/libraries/Chart.js">
             <link href="{{asset('admin/dist/css/style.min.css')}}" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/libs/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css')}}">
 

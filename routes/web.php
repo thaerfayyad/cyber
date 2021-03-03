@@ -18,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/login', 'site.layouts.loginAdmin');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/home','Site\homeController@index')->name('index');
+    Route::get('/','Site\homeController@index');
+    Route::get('Sign','Site\UserController@create')->name('signup');
+    Route::post('store','Site\UserController@store')->name('users.store');
+    Route::get('Log-in','Site\UserController@getLogIn')->name('users.login');
+    Route::post('user-sign-in','Site\UserController@userLogin')->name('users.sign');
