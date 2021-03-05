@@ -20,7 +20,7 @@
                                aria-expanded="false">Discover & learn</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="site/Resources.html">Resources</a></li>
-                                <li class="nav-item"><a class="nav-link" href="site/Library.html">Student library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}">Student library</a></li>
                                 <li class="nav-item"><a class="nav-link" href="site/Books.html">General library</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#OSI_Model">Network Layer</a></li>
 
@@ -33,6 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         <li class="nav-item"><a class="nav-link " href="{{route('signup')}}">Sign in</a></li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn text-uppercase"> Add attachment</a></li>
                     </ul>

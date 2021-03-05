@@ -26,3 +26,4 @@ Auth::routes();
     Route::post('store','Site\UserController@store')->name('users.store');
     Route::get('Log-in','Site\UserController@getLogIn')->name('users.login');
     Route::post('user-sign-in','Site\UserController@userLogin')->name('users.sign');
+    Route::get('student', 'site\BookController@student')->name('student.index');

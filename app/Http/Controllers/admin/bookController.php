@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class bookController extends Controller
 {
@@ -16,24 +17,10 @@ class bookController extends Controller
      */
     public function index()
     {
-        $chartjs = app()->chartjs
-            ->name('pieChartTest')
-            ->type('pie')
-            ->size(['width' => 400, 'height' => 200])
-            ->labels(['Label x', 'Label y'])
-            ->datasets([
-                [
-                    'backgroundColor' => ['#FF6384', '#36A2EB'],
-                    'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                    'data' => [69, 59]
-                ]
-            ])
-            ->options([]);
         $items = Book::all();
         return view('admin.books.home',
         [
             'items' =>$items,
-            'chartjs' =>$chartjs,
         ]);
     }
 
@@ -55,17 +42,25 @@ class bookController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'details' => 'required',
-            'file'   => 'mimes:doc,pdf,docx,zip'
+            'author' => 'required',
+            'yearFrom' => 'required',
+            'semester' => 'required',
+            'bookFile'   => 'mimes:doc,pdf,docx,zip'
         ]);
-        $book = new Book();
-        $book->name = $request->name;
-        $book->details = $request->details ;
-        $book->author = $request->author ;
-        $book->file = $request->file ;
-        $book->save();
+
+        if(  $request->bookFile != Null) {
+
+            $book = $request->file('bookFile');
+            $book_new_name = time() . "-" . $book->getClientOriginalName();
+            $book->storeAs('uploads/books', $book_new_name);
+            $book->bookFile = $book_new_name;
+        }
+
+        Book::create($request->except('_token'));
 
         return redirect()->back();
     }
@@ -89,7 +84,9 @@ class bookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $book = Book::findOrFail($id);
+
+        return view('admin.books.edit' , compact('book'));
     }
 
     /**
@@ -101,7 +98,29 @@ class bookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        dd($request->all());
+        $request->validate([
+            'name' => 'required|max:255',
+            'details' => 'required',
+            'author' => 'required',
+            'year' => 'required',
+            'semester' => 'required',
+            'library' => 'required',
+            'bookFile'   => 'mimes:doc,pdf,docx,zip'
+        ]);
+        $item = Book::findOrFail($id);
+        if(  $request->bookFile != Null) {
+
+            $book = $request->file('bookFile');
+            $book_new_name = time() . "-" . $book->getClientOriginalName();
+            $book->storeAs('uploads/books', $book_new_name);
+            $book->bookFile = $book_new_name;
+        }
+
+        $item ->update($request->except('_token'));
+        return redirect()->route('books.index')
+            ->with('success', 'Book updated successfully');
+
     }
 
     /**
@@ -112,6 +131,8 @@ class bookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Book::findOrFail($id)->delete();
+        return redirect()->route('books.index')
+            ->with('success', 'Book Deleted Successfully');
     }
 }

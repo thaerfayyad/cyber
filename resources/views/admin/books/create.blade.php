@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add New Book</h4>
+                        <h4 class="text-success text-lg-center">Add The Book</h4>
 
                     </div>
                     <hr>
@@ -25,52 +25,100 @@
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                            <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('blogs.store')}}">
-                            @csrf
-
-                            <div class="card-body">
-                                <h4 class="card-title"></h4>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="title" name="title" required>
-                                            </div>
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('books.store')}}">
+                        @csrf
+                        <div class="card-body">
+                            <h4 class="card-title"></h4>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title" name="name"  required>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Details</label>
-                                            <div class="col-sm-9">
-                                                <textarea name="details" id="" cols="40" rows="5"></textarea>
-                                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">author</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="title" name="author" required>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">file</label>
-                                            <div class="col-sm-9">
-                                                <input type="file" class="form-control" id="file" name="file" required>
-                                            </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Details</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="details" id="" cols="40" rows="5"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                              </div>
+                            </div>
 
-                                <hr>
-                                <div class="card-body">
-                                    <div class="form-group m-b-0 text-center">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light">save</button>
-
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">yearFrom</label>
+                                    <div class="col-sm-9">
+                                        <input type="number" class="form-control" id="file" name="year" value=""  placeholder="XXXX" required>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
+                                    <div class="col-sm-9">
+                                        <select id="semester" name="semester">
+                                            <option value="volvo">Select The Semester</option>
+                                            <option value="1" >Semester '1'</option>
+                                            <option value="2" >Semester '2'</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
+                                    <div class="col-sm-9">
+                                        <select  name="library">
+                                            <option value="volvo">Select The Library</option>
+                                            <option value="1" >General</option>
+                                            <option value="2">Student</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Book File</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" id="bookFile" name="bookFile" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                           </form>
+
+                        <hr>
+                        <div class="card-body">
+                            <div class="form-group m-b-0 text-center">
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
+
+                            </div>
+                        </div>
+
+                    </form>
 
 
                 </div>

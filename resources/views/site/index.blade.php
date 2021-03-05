@@ -47,12 +47,18 @@
                                 </div>
                             </div>
 
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <h1>chart</h1>
+    <div style="width:75%;">
+        {!! $chartjs->render() !!}
+    </div>
     <!--================End Home Banner Area =================-->
 
 

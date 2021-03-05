@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">title <a href="" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
+                        <h2 class="card-title">title <a href="{{route('books.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
                         <div class="table-responsive">
 
                             <table id="file_export" class="table table-striped table-bordered display">
@@ -17,11 +17,13 @@
                                 <thead >
                                 <tr>
 
-                                 <th>id</th>
-                                 <th>operations</th>
-                                 <th>name</th>
-                                 <th>image</th>
-                                 <th>category</th>
+                                 <th>Id</th>
+                                 <th>Operations</th>
+                                 <th>Title</th>
+                                 <th>Author</th>
+                                 <th>Year</th>
+                                 <th>Semester</th>
+                                 <th>Library</th>
                                  <th>details</th>
                                  <th>date</th>
 
@@ -45,10 +47,10 @@
 
                                         </td>
                                         <td>{{$val->name}}</td>
-                                        <td>
-                                            <img src="{{asset('upload/books/image').'/'.$val->photo}}" alt="{{$val->photo}}" width="70px" height="70"></td>
-
-                                        <td>{{@$val->category->name}}</td>
+                                        <td>{{$val->author}}</td>
+                                       <td>{{@$val->year}}</td>
+                                       <td>{{@$val->getSemester()}}</td>
+                                       <td>{{@$val->getLibrary()}}</td>
                                         <td>{{$val->details}}</td>
                                         <td>{{$val->created_at}}</td>
 
