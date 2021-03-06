@@ -35,7 +35,7 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">Title</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="title" name="title" required>
+                                                <input type="text" class="form-control" id="title" name="title" placeholder="name" required>
                                             </div>
                                         </div>
                                     </div>
@@ -43,9 +43,18 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-6">
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Filed</label>
+                                            <label for="name" class="col-sm-3 text-right control-label col-form-label" >Filed</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="filed" name="filed" required>
+                                                <input type="text" class="form-control" id="filed" name="filed" placeholder="security" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><div class="row">
+                                    <div class="col-sm-12 col-lg-6">
+                                        <div class="form-group row">
+                                            <label for="name" class="col-sm-3 text-right control-label col-form-label" >link</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="icon" name="link" placeholder="www.github.com" required>
                                             </div>
                                         </div>
                                     </div>
@@ -60,38 +69,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Link</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="link" name="link" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Year of exam</label>
-                                            <div class="col-sm-9">
-                                                <input type="number" class="form-control" id="title" name="title" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-lg-6">
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">ExamFile</label>
-                                            <div class="col-sm-9">
-                                                <input type="file" class="form-control" id="examFile" name="examFile" >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-
                                 <hr>
                                 <div class="card-body">
                                     <div class="form-group m-b-0 text-center">

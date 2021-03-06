@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\book;
+use App\Models\admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,8 @@ class resourceController extends Controller
      */
     public function index()
     {
-        return view('admin.resources.index');
+        $items = Resource::all();
+        return view('admin.resources.home',compact('items'));
     }
 
     /**
@@ -37,17 +39,27 @@ class resourceController extends Controller
      */
     public function store(Request $request)
     {
+       // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'details' => 'required',
-            'file'   => 'mimes:doc,pdf,docx,zip'
-        ]);
-        $book = new Book();
-        $book->name = $request->name;
-        $book->details = $request->details ;
-        $book->author = $request->author ;
-        $book->file = $request->file ;
-        $book->save();
+            'title' => 'required',
+            'link' => 'required',
+            'filed'   => 'required',
+            'icon'   => 'required',
+            ]);
+        $resources = new Resource();
+        $resources->title =$request ->title;
+        $resources->link =$request ->link;
+        $resources->filed =$request ->filed;
+        if(  $request->icon != Null){
+
+            $imgName = $resources->id.'_icon'.time().'.'.request()->icon->getClientOriginalExtension();
+
+            $request->icon->move('uploads/images/icons',$imgName);
+
+
+            $resources->icon = $imgName;
+        }
+        $resources ->save();
 
         return redirect()->back();
     }

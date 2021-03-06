@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{asset('site/css/media.css')}}.">
     <link rel="stylesheet" href="{{asset('site/js/function.js')}}.">
     <link rel="stylesheet" href="{{asset('site/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('site/js/function.js')}}">
 </head>
 
 <body>
@@ -52,7 +53,9 @@
 <script src="{{asset('site/js/mail-script.js')}}"></script>
 <!--gmaps Js-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-
+<script src="{{asset('site/js/gmaps.min.js')}}"></script>
+<script src="{{asset('site/js/theme.js')}}"></script>
+<script src="{{asset('site/js/function.js')}}"></script>
 </body>
 
 </html>

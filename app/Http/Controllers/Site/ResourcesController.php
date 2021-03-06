@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Book;
+use App\Models\admin\Resource;
 use Illuminate\Http\Request;
 use DB;
-class BookController extends Controller
+class ResourcesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,21 +24,12 @@ class BookController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function general()
+
+    public function index()
+
     {
-
-
-        $books = Book::where('library', 1)->get();
-
-        return view('site.books.index', compact('books'));
-    }
-    public function student()
-    {
-
-
-       $books = Book::where('library', 2)->get();
-
-        return view('site.books.index', compact('books'));
+        $items =Resource::all();
+        return view('site.resources.index',compact('items'));
     }
 
 }

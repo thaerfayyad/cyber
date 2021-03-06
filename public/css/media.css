@@ -1,0 +1,98 @@
+
+  /* Extra small devices (portrait phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .right_div{
+      display: none;
+    }
+    .form_login{
+      padding-bottom: 20px;
+    }
+    .logo_img {
+      margin: 10px;
+    }
+    .form_div{
+      width: 300px;
+    margin: 0px;
+    border-radius: 15px;
+    }
+    .img_form{
+      display: none;
+    }
+    .between{
+      display: flex;
+      flex-direction: column;
+    }
+    .table_exam{
+      margin-top: 5%;
+    }
+    .personal_form{
+      margin-top: 15% !important;
+    }
+   }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) { 
+    .right_div{
+      display: none;
+    }
+    .form_login{
+      padding-bottom: 20px;
+    }
+    .logo_img {
+      margin: 10px;
+    }
+    .form_div{
+      width: 300px;
+    margin: 0px;
+    border-radius: 15px;
+    }
+    .img_form{
+      display: none;
+    }
+    .between{
+      flex-direction: column;
+    }
+    .table_exam{
+      margin-top: 5%;
+    }
+    .personal_form{
+      margin-top: 15% !important;
+    }
+  }
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {  
+    .right_div{
+      display: none;
+    }
+    .form_login{
+      padding-bottom: 20px;
+    }
+    .logo_img {
+      margin: 10px;
+    }
+    .form_div{
+      width: 300px;
+    margin: 0px;
+    border-radius: 15px;
+    }
+    .img_form{
+      display: none;
+    }
+    .table_exam{
+      margin-top: 5%;
+    }
+    .personal_form{
+      margin-top: 15% !important;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) { 
+   
+  }
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+  
+    
+  }
+  

@@ -14,28 +14,41 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav justify-content-center">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="index.html"  style=" text-transform: capitalize">Home</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Discover & learn</a>
+                               aria-expanded="false"  style=" text-transform: capitalize">Discover & learn</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="site/Resources.html">Resources</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}">Student library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="site/Books.html">General library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#OSI_Model">Network Layer</a></li>
-
+                                <li class="nav-item"><a class="nav-link" href="{{route('resources.home')}}" style=" text-transform: capitalize">Resources</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}"  style=" text-transform: capitalize">Student library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('general.index')}}"  style=" text-transform: capitalize">General library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{#">Network Layer</a></li>
 
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="./Profile.html">Account</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="./blog.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="./about.html">About As</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link " href="{{route('signup')}}">Sign in</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Suggestion"  style=" text-transform: capitalize">Suggestion</a></li>
+
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="./blog.html"  style=" text-transform: capitalize">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="./about.html"  style=" text-transform: capitalize">About As</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" style=" text-transform: capitalize">Contact</a></li>
+
+
                     </ul>
 
+
+                    <div class="dropdown user_name_div">
+                        <a class="btn  btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            User Name <img  class="user_name_dorp" src="{{asset('site/img/blog/c2.jpg')}}" alt="">
+
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="Profile.html"  style=" text-transform: capitalize">Account</a>
+                            <a class="dropdown-item" href="login.html"  style=" text-transform: capitalize">Logout </a>
+                        </div>
+                    </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn text-uppercase"> Add attachment</a></li>
+                        <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn text-uppercase"  style=" text-transform: capitalize"> Add attachment</a></li>
                     </ul>
                 </div>
             </div>

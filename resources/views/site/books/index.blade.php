@@ -1,7 +1,7 @@
 @extends('site.layouts.app')
 
 @section('content')
-    <div class="col-sm-12 col-md-10">
+    <div class="col-sm-12 col-md-8">
         <Div class="table_exam">
             <div class="Exams_title">
                 <h4 class="Ex_Name">Books</h4>
