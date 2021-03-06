@@ -29,3 +29,4 @@ Auth::routes();
     Route::get('books-library-student', 'site\BookController@student')->name('student.index');
     Route::get('books-library-general', 'site\BookController@general')->name('general.index');
     Route::get('resources', 'site\ResourcesController@index')->name('resources.home');
+    Route::get('layers' , 'site\LayersController@index')->name('layers.index');

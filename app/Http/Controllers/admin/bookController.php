@@ -17,7 +17,7 @@ class bookController extends Controller
      */
     public function index()
     {
-        $items = Book::all();
+      dd(  $items = Book::all());
         return view('admin.books.home',
         [
             'items' =>$items,

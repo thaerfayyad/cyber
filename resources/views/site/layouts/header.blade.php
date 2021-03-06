@@ -22,7 +22,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{{route('resources.home')}}" style=" text-transform: capitalize">Resources</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}"  style=" text-transform: capitalize">Student library</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('general.index')}}"  style=" text-transform: capitalize">General library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{#">Network Layer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('layers.index')}}">Network Layer</a></li>
 
                             </ul>
                         </li>
