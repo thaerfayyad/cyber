@@ -44,12 +44,12 @@ class bookController extends Controller
     {
 //        dd($request->all());
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'details' => 'required',
-            'author' => 'required',
+            'name'     => 'required',
+            'details'  => 'required',
+            'author'   => 'required',
             'yearFrom' => 'required',
             'semester' => 'required',
-            'bookFile'   => 'mimes:doc,pdf,docx,zip'
+            'bookFile' => 'mimes:doc,pdf,docx,zip'
         ]);
 
         if(  $request->bookFile != Null) {

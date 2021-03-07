@@ -15,7 +15,7 @@ class resourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function  index()
     {
       $items = Resource::all();
         return view('admin.resources.home',compact('items'));
@@ -42,9 +42,9 @@ class resourceController extends Controller
        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'link' => 'required',
-            'filed'   => 'required',
-            'icon'   => 'required',
+            'link'  => 'required',
+            'filed' => 'required',
+            'icon'  => 'required',
             ]);
         $resources = new Resource();
         $resources->title =$request ->title;
