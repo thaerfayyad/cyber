@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\book;
+use App\Models\admin\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +17,7 @@ class bookController extends Controller
      */
     public function index()
     {
-      dd(  $items = Book::all());
+      $items  = Book::all();
         return view('admin.books.home',
         [
             'items' =>$items,
