@@ -83,7 +83,9 @@ class resourceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Resource::findOrFail($id);
+        return view('admin.resources.edit',compact('item'));
+
     }
 
     /**
@@ -95,7 +97,22 @@ class resourceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = Resource::findOrFail($id);
+        $item->title =$request ->title;
+        $item->link =$request ->link;
+        $item->filed =$request ->filed;
+        if(  $request->icon != Null){
+
+            $imgName = $item->id.'_icon'.time().'.'.request()->icon->getClientOriginalExtension();
+
+            $request->icon->move('uploads/images/icons',$imgName);
+
+
+            $item->icon = $imgName;
+        }
+        $item ->save();
+        return redirect()->route('resources.index')
+            ->with('success', 'Resources updated successfully');
     }
 
     /**
@@ -106,6 +123,8 @@ class resourceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Resource::findOrFail($id)->delete();
+        return redirect()->route('resources.index')
+            ->with('success', 'Resources Deleted Successfully');
     }
 }

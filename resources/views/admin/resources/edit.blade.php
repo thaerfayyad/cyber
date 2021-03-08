@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">add new subcategory</h4>
+                        <h4 class="text-success text-lg-center">Add New Resources</h4>
 
                     </div>
                     <hr>
@@ -25,39 +25,17 @@
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('product.update',$items->id)}}">
-                        {{method_field('PATCH')}}
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('resources.update',$item->id)}}">
                         @csrf
-
+                        {{ method_field('PUT') }}
                         <div class="card-body">
                             <h4 class="card-title"></h4>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Select category</label>
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Title</label>
                                         <div class="col-sm-9">
-                                            <select class="col-sm-9" id="" name="category_id" required>
-                                                @foreach($cats as $cat)
-                                                    <option value="{{$cat->id}}"
-                                                            @if($items->id == $cat->id)
-                                                            selected
-                                                        @endif
-
-                                                    >{{$cat->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="name" name="name" value="{{$items->name}}" required>
+                                            <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}" >
                                         </div>
                                     </div>
                                 </div>
@@ -65,27 +43,34 @@
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">details</label>
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label" >Filed</label>
                                         <div class="col-sm-9">
-                                            <textarea name="details" id="" cols="40" rows="5" placeholder="details  of the product" required>{{$items->details}}</textarea>
+                                            <input type="text" class="form-control" id="filed" name="filed" value="{{$item->filed}}" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label" >link</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="icon" name="link" value="{{$item->link}}" >
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-lg-6">
+                                <div class="col-sm-6 col-lg-6">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">image</label>
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Icon</label>
                                         <div class="col-sm-9">
-                                            <input type="file" class="form-control" id="image" name="image">
-                                            <br>
-                                            <hr>
-                                            <img src="{{asset('upload/products/image').'/'.$items->photo}}" alt="{{$items->photo}}" width="100px" height="100"></td>
+                                            <input type="file" class="form-control" id="icon" name="icon">
                                         </div>
                                     </div>
                                 </div>
-
-
+                            </div>
+                            <div class="col-sm-6 col-lg-6" style="float: right">
+                                <img src="{{asset('/uploads/images/icons/'.$item->icon)}}" alt="" title="" class="rounded-circle" width="75">
                             </div>
                             <hr>
                             <div class="card-body">
@@ -94,7 +79,7 @@
 
                                 </div>
                             </div>
-                        </div>
+
                     </form>
 
 

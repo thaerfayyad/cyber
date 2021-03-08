@@ -1,6 +1,7 @@
 
 
 @extends('site.layouts.app')
+@section('title', 'Resources')
 
 @section('content')
 

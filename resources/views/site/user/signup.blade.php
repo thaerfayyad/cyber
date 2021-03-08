@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ANTENNA CAMPUS</title>
+    @section('title', 'Sign Up')
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('site/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('site/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -26,7 +26,7 @@
                 <img src="{{asset('site/img/logo.png')}}" class="logo_design">
             </div>
             <br>
-            <form method="POST" action="{{route('users.store')}}">
+            <form method="POST" action="{{route('users.save')}}">
                 @csrf
                 <div class="form_login">
                     <div class="input_div">

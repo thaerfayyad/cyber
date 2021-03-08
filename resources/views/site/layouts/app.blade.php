@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="{{asset('site/img/logo.ico')}}" type="image/png">
-    <title>ANTENNA CAMPUS</title>
+{{--    @section('title', 'ANTENNA CAMPUS')--}}
+    <title>ANTENNA CAMPUS @yield('title')</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href=" https://cdnjs.com/libraries/Chart.js">
     <link rel="stylesheet" href="{{asset('site/css/bootstrap.css')}}">

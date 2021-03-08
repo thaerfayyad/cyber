@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ANTENNA CAMPUS</title>
+    @section('title', 'Log In')
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('site/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('site/vendor/bootstrap/css/bootstrap.min.css')}}">
