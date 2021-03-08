@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+
+use App\Models\admin\Contact;
 use App\xx;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -18,7 +18,7 @@ class ContactController extends Controller
     public function index()
     {
 
-        $items = xx::all();
+        $items = Contact::all();
         return view('admin.contactus.home',
         [
             'items' =>$items,
@@ -49,7 +49,7 @@ class ContactController extends Controller
             'email'   => 'required|email',
             'message' => 'required',
         ]);
-        $cont = new xx();
+        $cont = new Contact();
         $cont->name = $request->name;
         $cont->email = $request->email ;
         $cont->message = $request->message ;

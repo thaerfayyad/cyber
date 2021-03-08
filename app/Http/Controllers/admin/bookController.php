@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\Book;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -47,7 +47,7 @@ class bookController extends Controller
             'name'     => 'required',
             'details'  => 'required',
             'author'   => 'required',
-            'yearFrom' => 'required',
+            'year' => 'required',
             'semester' => 'required',
             'bookFile' => 'mimes:doc,pdf,docx,zip'
         ]);
