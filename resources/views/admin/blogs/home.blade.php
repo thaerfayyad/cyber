@@ -19,10 +19,9 @@
 
                                  <th>id</th>
                                  <th>operations</th>
-                                 <th>name</th>
+                                 <th>title</th>
+                                 <th>description</th>
                                  <th>image</th>
-                                 <th>category</th>
-                                 <th>details</th>
                                  <th>date</th>
 
                                 </tr>
@@ -34,8 +33,8 @@
 
                                         <td>{{$key+1}}</td>
                                         <td>
-                                            <a href="{{url(LaravelLocalization::setLocale().'/admin/product/'.$val->id.'/edit')}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
-                                            <form action="{{ route('product.destroy',$val->id) }}" method="post" class="form-check-inline" >
+                                            <a href="{{url('/admin/blogs/'.$val->id.'/edit')}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
+                                            <form action="{{ route('blogs.destroy',$val->id) }}" method="post" class="form-check-inline" >
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <button class="btn btn-danger waves-effect waves-light" type="submit" >
@@ -44,12 +43,9 @@
                                             </form>
 
                                         </td>
-                                        <td>{{$val->name}}</td>
-                                        <td>
-                                            <img src="{{asset('upload/products/image').'/'.$val->photo}}" alt="{{$val->photo}}" width="70px" height="70"></td>
-                                        </td>
-                                        <td>{{@$val->category->name}}</td>
-                                        <td>{{$val->details}}</td>
+                                        <td>{{$val->title}}</td>
+                                        <td>{{$val->description}}</td>
+                                        <td>  <img src="{{asset('/uploads/images/blogs'.'/'.$val->image)}}" alt="" title="" class="rounded-circle" width="75">{{$val->image}}</td>
                                         <td>{{$val->created_at}}</td>
 
 

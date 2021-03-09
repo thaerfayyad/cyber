@@ -22,6 +22,7 @@
                                  <th>Title</th>
                                  <th>Author</th>
                                  <th>Year</th>
+                                 <th>Book</th>
                                  <th>Semester</th>
                                  <th>Library</th>
                                  <th>details</th>
@@ -49,6 +50,7 @@
                                         <td>{{$val->name}}</td>
                                         <td>{{$val->author}}</td>
                                        <td>{{@$val->year}}</td>
+                                       <td>{{@$val->getBook()}}</td>
                                        <td>{{@$val->getSemester()}}</td>
                                        <td>{{@$val->getLibrary()}}</td>
                                         <td>{{$val->details}}</td>

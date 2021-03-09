@@ -45,7 +45,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">book </span>
+                        <span class="hide-menu">library </span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
@@ -89,23 +89,39 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">Post</span>
+                        <span class="hide-menu">post the week</span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="{{route('posts.create')}}" class="sidebar-link">
+                            <a href="{{route('resources.create')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> create</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
+                            <a href="{{route('resources.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> Comments</span>
+                                <span class="hide-menu"> index</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="icon-Car-Wheel"></i>
+                        <span class="hide-menu">blog</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item">
+                            <a href="{{route('blogs.create')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu"> create</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="index2.html" class="sidebar-link">
+                            <a href="{{route('blogs.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> index</span>
                             </a>

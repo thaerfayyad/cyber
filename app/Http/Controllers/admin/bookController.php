@@ -50,6 +50,7 @@ class bookController extends Controller
             'year' => 'required',
             'semester' => 'required',
             'library' => 'required',
+            'book' => 'required',
             'bookFile'   => 'mimes:doc,pdf,docx,zip'
         ]);
 

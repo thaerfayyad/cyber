@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add The Book</h4>
+                        <h4 class="text-success text-lg-center">Add The Library</h4>
 
                     </div>
 
@@ -81,25 +81,49 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
+                                        <select id="semester" name="book">
+                                            <option value="volvo">Select The library of book</option>
+                                            <option value="1" >Book</option>
+                                            <option value="2" >Resources</option>
+                                            <option value="3" >Exercises</option>
+                                        </select>
+                                        @error('book')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
+                                    <div class="col-sm-9">
+                                        <select id="semester" name="library">
+                                            <option value="volvo">Select The library</option>
+                                            <option value="1" >Student</option>
+                                            <option value="2" >General</option>
+                                        </select>
+                                        @error('library')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
+                                    <div class="col-sm-9">
                                         <select id="semester" name="semester">
                                             <option value="volvo">Select The Semester</option>
                                             <option value="1" >Semester '1'</option>
                                             <option value="2" >Semester '2'</option>
                                         </select>
                                         @error('semester')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
-                                    <div class="col-sm-9">
-                                        <select  name="library">
-                                            <option value="volvo">Select The Library</option>
-                                            <option value="1" >General</option>
-                                            <option value="2">Student</option>
-                                        </select>
-                                        @error('library')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -113,10 +137,10 @@
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Book File</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control" id="bookFile" name="bookFile" >
-                                        @error('bookFile')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
                                     </div>
+                                    @error('bookFile')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

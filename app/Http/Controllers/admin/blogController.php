@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\book;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +16,8 @@ class blogController extends Controller
      */
     public function index()
     {
-        return view('admin.blogs.index');
+       $items = Post::all();
+        return view('admin.blogs.home',compact('items'));
     }
 
     /**
@@ -37,7 +38,23 @@ class blogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        if(  $request->image != Null) {
+
+            $image = $request->file('image');
+            $image_new_name = time() . "-" . $image->getClientOriginalName();
+            $image->move('uploads/images/blogs', $image_new_name);
+            $image->image = $image_new_name;
+        }
+
+      Post::create($request->except('_token'));
+
+        return redirect()->back();
     }
 
     /**

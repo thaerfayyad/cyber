@@ -17,4 +17,13 @@ class Book extends Model
     public function getLibrary(){
         return   $this -> library == 1 ? 'General '  : 'Student ';
     }
+    public function getBook(){
+        if ($this -> book == 1 )
+            return 'book ' ;
+        elseif ($this -> book == 2)
+        return  'resources';
+        else
+        return 'Exercises' ;
+    }
+
 }

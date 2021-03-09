@@ -39,5 +39,29 @@ class BookController extends Controller
 
         return view('site.books.index', compact('books'));
     }
+    public function book()
+    {
+
+
+        $books = Book::where('book', 1)->get();
+
+        return view('site.books.index', compact('books'));
+    }
+    public function resources()
+    {
+
+
+        $books = Book::where('book', 2)->get();
+
+        return view('site.books.index', compact('books'));
+    }
+    public function exercises()
+    {
+
+
+        $books = Book::where('book', 3)->get();
+
+        return view('site.books.index', compact('books'));
+    }
 
 }

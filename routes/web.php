@@ -28,5 +28,8 @@ Auth::routes();
     Route::post('user-sign-in','Site\UserController@userLogin')->name('users.sign');
     Route::get('books-library-student', 'site\BookController@student')->name('student.index');
     Route::get('books-library-general', 'site\BookController@general')->name('general.index');
+    Route::get('books', 'site\BookController@book')->name('book.home');
+    Route::get('resources-library-general', 'site\BookController@resources')->name('resources.book.home');
+    Route::get('exercises-library-general', 'site\BookController@exercises')->name('exercises.book.home');
     Route::get('resources', 'site\ResourcesController@index')->name('resources.home');
     Route::get('layers' , 'site\LayersController@index')->name('layers.index');

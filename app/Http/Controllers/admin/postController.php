@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\book;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,7 @@ class postController extends Controller
      */
     public function index()
     {
-        return view('admin.posts.index');
+        return view('admin.blogs.index');
     }
 
     /**
@@ -26,7 +27,7 @@ class postController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.blogs.create');
     }
 
     /**
@@ -37,7 +38,23 @@ class postController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        if(  $request->bookFile != Null) {
+
+            $book = $request->file('bookFile');
+            $book_new_name = time() . "-" . $book->getClientOriginalName();
+            $book->storeAs('uploads/books', $book_new_name);
+            $book->bookFile = $book_new_name;
+        }
+
+        Post::create($request->except('_token'));
+
+        return redirect()->back();
     }
 
     /**

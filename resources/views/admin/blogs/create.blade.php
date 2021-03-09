@@ -11,21 +11,10 @@
 
                     </div>
                     <hr>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <hr>
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                            <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('posts.store')}}">
+                            <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('blogs.store')}}">
                             @csrf
 
                             <div class="card-body">
@@ -36,6 +25,9 @@
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="title" name="title" required>
+                                                @error('title')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -43,9 +35,12 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-lg-6">
                                         <div class="form-group row">
-                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">Details</label>
+                                            <label for="name" class="col-sm-3 text-right control-label col-form-label">description</label>
                                             <div class="col-sm-9">
-                                                <textarea name="details" id="" cols="40" rows="5"></textarea>
+                                                <textarea name="description" id="" cols="40" rows="5" required></textarea>
+                                                @error('description')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +50,10 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">image</label>
                                             <div class="col-sm-9">
-                                                <input type="file" class="form-control" id="img" name="img" required>
+                                                <input type="file" class="form-control" id="img" name="image" required>
+                                                @error('image')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
