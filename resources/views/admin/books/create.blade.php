@@ -10,16 +10,7 @@
                         <h4 class="text-success text-lg-center">Add The Book</h4>
 
                     </div>
-                    <hr>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+
 
                     <hr>
                     @include('admin.include.alerts.success')
@@ -34,7 +25,10 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="title" name="name"  required>
+                                            <input type="text" class="form-control" id="title" name="name"  >
+                                            @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +38,10 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">author</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="title" name="author" required>
+                                            <input type="text" class="form-control" id="title" name="author" >
+                                            @error('author')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -56,6 +53,9 @@
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">Details</label>
                                         <div class="col-sm-9">
                                             <textarea name="details" id="" cols="40" rows="5"></textarea>
+                                            @error('details')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -65,9 +65,12 @@
                         <div class="row">
                             <div class="col-sm-6 col-lg-6">
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">yearFrom</label>
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">year</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" id="file" name="year" value=""  placeholder="XXXX" required>
+                                        <input type="number" class="form-control" id="file" name="year" value=""  placeholder="XXXX" >
+                                        @error('year')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -83,6 +86,9 @@
                                             <option value="1" >Semester '1'</option>
                                             <option value="2" >Semester '2'</option>
                                         </select>
+                                        @error('semester')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -93,6 +99,9 @@
                                             <option value="1" >General</option>
                                             <option value="2">Student</option>
                                         </select>
+                                        @error('library')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -104,6 +113,9 @@
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Book File</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control" id="bookFile" name="bookFile" >
+                                        @error('bookFile')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

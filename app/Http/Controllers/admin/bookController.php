@@ -43,13 +43,14 @@ class bookController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'name'     => 'required',
-            'details'  => 'required',
-            'author'   => 'required',
+        $request->validate([
+            'name' => 'required|max:255',
+            'details' => 'required',
+            'author' => 'required',
             'year' => 'required',
             'semester' => 'required',
-            'bookFile' => 'mimes:doc,pdf,docx,zip'
+            'library' => 'required',
+            'bookFile'   => 'mimes:doc,pdf,docx,zip'
         ]);
 
         if(  $request->bookFile != Null) {
@@ -99,15 +100,7 @@ class bookController extends Controller
     public function update(Request $request, $id)
     {
 //        dd($request->all());
-        $request->validate([
-            'name' => 'required|max:255',
-            'details' => 'required',
-            'author' => 'required',
-            'year' => 'required',
-            'semester' => 'required',
-            'library' => 'required',
-            'bookFile'   => 'mimes:doc,pdf,docx,zip'
-        ]);
+
         $item = Book::findOrFail($id);
         if(  $request->bookFile != Null) {
 

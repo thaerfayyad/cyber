@@ -44,7 +44,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
             //dd($request->all());
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name'    => 'required',
             'email'   => 'required|email',
             'message' => 'required',

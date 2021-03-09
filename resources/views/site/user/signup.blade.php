@@ -30,21 +30,21 @@
                 @csrf
                 <div class="form_login">
                     <div class="input_div">
-                        <input type="text" class="input_form" placeholder="User Name" name="userName" value="{{ old('userName') }}" required autocomplete="userName" autofocus >
+                        <input type="text" class="input_form" placeholder="User Name" name="userName" value="{{ old('userName') }}"  autocomplete="userName" autofocus >
                         @error('userName')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="input_div">
-                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="input_div">
-                        <input type="password" class="input_form @error('password') is-invalid @enderror" placeholder="Password"  name="password" required autocomplete="new-password">
+                        <input type="password" class="input_form @error('password') is-invalid @enderror" placeholder="Password"  name="password"  autocomplete="new-password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                                <strong>{{ $message }}</strong>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="input_div">
-                        <input type="password" class="input_form" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                        <input type="password" class="input_form" placeholder="Confirm Password" name="password_confirmation"  autocomplete="new-password">
                         @error('Confirm_Password"')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

@@ -29,7 +29,7 @@ class AdminController extends Controller
 //        make validations
 //        dd($request->all());
 
-        $validatedData = $request->validate([
+        $request->validate([
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string'],
 

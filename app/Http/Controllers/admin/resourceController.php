@@ -40,7 +40,7 @@ class resourceController extends Controller
     public function store(Request $request)
     {
        // dd($request->all());
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title' => 'required',
             'link'  => 'required',
             'filed' => 'required',

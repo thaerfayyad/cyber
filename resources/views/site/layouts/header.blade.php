@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn text-uppercase"  style=" text-transform: capitalize"> Add attachment</a></li>
+                        <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
                     </ul>
                 </div>
             </div>

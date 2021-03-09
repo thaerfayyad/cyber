@@ -67,28 +67,6 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">exercises  </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item">
-                            <a href="{{route('exams.create')}}" class="sidebar-link">
-                                <i class="icon-Record"></i>
-                                <span class="hide-menu"> create</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index2.html" class="sidebar-link">
-                                <i class="icon-Record"></i>
-                                <span class="hide-menu"> index</span>
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="icon-Car-Wheel"></i>
                         <span class="hide-menu">resources</span>
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
@@ -100,28 +78,6 @@
                         </li>
                         <li class="sidebar-item">
                             <a href="{{route('resources.index')}}" class="sidebar-link">
-                                <i class="icon-Record"></i>
-                                <span class="hide-menu"> index</span>
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                        <i class="icon-Car-Wheel"></i>
-                        <span class="hide-menu">Blog</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item">
-                            <a href="{{route('blogs.create')}}" class="sidebar-link">
-                                <i class="icon-Record"></i>
-                                <span class="hide-menu"> create</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="index2.html" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> index</span>
                             </a>

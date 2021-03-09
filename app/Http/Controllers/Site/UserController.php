@@ -37,12 +37,12 @@ class UserController extends Controller
 //        make validations
 //        dd($request->all());
 
-//        $validatedData = $request->validate([
-//            'userName' => ['required', 'string', 'max:255'],
-//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-//            'password' => ['required', 'string', 'min:8', 'confirmed'],
-//
-//        ]);
+ $request->validate([
+            'userName' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+
+        ]);
         $remember_me = $request->has('remember_me') ? true : false;
 
 
@@ -61,9 +61,10 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'userName' => 'required',
             'email' => 'required|email|unique:users,email,',
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         $user = new User();
         $user ->name = $request->input('userName');

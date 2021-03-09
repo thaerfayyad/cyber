@@ -10,7 +10,7 @@
 {{--    @section('title', 'ANTENNA CAMPUS')--}}
     <title>ANTENNA CAMPUS @yield('title')</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href=" https://cdnjs.com/libraries/Chart.js">
+
     <link rel="stylesheet" href="{{asset('site/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('site/vendor/linericon/style.css')}}">
     <link rel="stylesheet" href="{{asset('site/css/font-awesome.min.css')}}">

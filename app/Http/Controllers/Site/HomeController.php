@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
+use DB;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -24,22 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $chartjs = app()->chartjs
-            ->name('pieChartTest')
-            ->type('pie')
-            ->size(['width' => 400, 'height' => 200])
-            ->labels(['Label x', 'Label y'])
-            ->datasets([
-                [
-                    'backgroundColor' => ['#FF6384', '#36A2EB'],
-                    'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                    'data' => [69, 59]
-                ]
-            ])
-            ->options([]);
+        return view('site.index');
 
-
-        return view('site.index', compact('chartjs'));
     }
 
 }

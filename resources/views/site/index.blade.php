@@ -56,9 +56,7 @@
         </div>
     </section>
     <h1>chart</h1>
-    <div style="width:75%;">
-        {!! $chartjs->render() !!}
-    </div>
+    <canvas id="canvas" height="280" width="600"></canvas>
     <!--================End Home Banner Area =================-->
 
 
@@ -151,17 +149,27 @@
                         <form class="form" action="{{route('store.contact')}}" method="POST">
                             @csrf
                             <div class="inputs_contact">
-                                <input type="text" class="input-contact" placeholder="name" name="name">
+                                <input type="text" class="input-contact" placeholder="name" name="name" required>
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="inputs_contact">
-                                <input type="email" class="input-contact" placeholder="email" name="email">
+                                <input type="email" class="input-contact" placeholder="email" name="email" required >
+                                @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="inputs_contact">
-							<textarea class="input_msg" placeholder="Write your massage" name="message">
+							<textarea class="input_msg" placeholder="Write your massage" name="message"  required>
 
 								</textarea>
+                                @error('message')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+
                             </div>
 
                             <div class="btn_contact">
@@ -182,5 +190,5 @@
         </div>
     </section>
     <!--================End Footer Area =================-->
-
 @stop
+

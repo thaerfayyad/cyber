@@ -11,15 +11,6 @@
 
                     </div>
                     <hr>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 
                     <hr>
                     @include('admin.include.alerts.success')
@@ -35,7 +26,10 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">Title</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="title" name="title" placeholder="name" required>
+                                                <input type="text" class="form-control" id="title" name="title" placeholder="name" >
+                                                @error('title')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +39,10 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label" >Filed</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="filed" name="filed" placeholder="security" required>
+                                                <input type="text" class="form-control" id="filed" name="filed" placeholder="security" >
+                                                @error('filed')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +51,10 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label" >link</label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="icon" name="link" placeholder="www.github.com" required>
+                                                <input type="text" class="form-control" id="icon" name="link" placeholder="www.github.com" >
+                                                @error('link')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +64,10 @@
                                         <div class="form-group row">
                                             <label for="name" class="col-sm-3 text-right control-label col-form-label">Icon</label>
                                             <div class="col-sm-9">
-                                                <input type="file" class="form-control" id="icon" name="icon" required>
+                                                <input type="file" class="form-control" id="icon" name="icon" >
+                                                @error('icon')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
