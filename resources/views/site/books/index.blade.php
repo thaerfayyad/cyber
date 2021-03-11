@@ -17,7 +17,7 @@
                             </div>
                         </a>
                         <a href="{{route('book.home')}}">
-                            <div class="books_tab active_tab">
+                            <div class="books_tab">
                                 <i class="fa fa-book icon1" aria-hidden="true"></i>
                                 <p class="title_tab resource_tab">Books</p>
                             </div>
@@ -36,8 +36,6 @@
                         <div class="Exams_title">
                             <h4 class="Ex_Name">Books</h4>
                         </div>
-
-
                         @isset($books)
                             @foreach($books as $book)
                                 <div class="exam_tab">
@@ -65,12 +63,15 @@
                                     </div>
 
                                     <Div class="icons_exam">
+                                        <i class="fa-3x  fa fa-eye  " ></i>
                                         <i class="fa fa-download download" aria-hidden="true"></i>
                                     </Div>
 
                                 </div>
                             @endforeach
                         @endisset
+
+
 
                     </Div>
 

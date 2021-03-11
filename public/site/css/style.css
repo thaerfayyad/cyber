@@ -888,8 +888,7 @@ button:focus {
       transition: all 0.2s linear; }
       .single-post-area .social-links li a:hover {
         color: #8252fa; }
-.single-post-area .blog_details {
-  padding-top: 26px; }
+
   .single-post-area .blog_details p {
     margin-bottom: 10px; }
 .single-post-area .quotes {
@@ -2743,12 +2742,12 @@ h6 {
 .brand-carousel .single-brand-item {
   background: #fcf8ff;
   height: 130px;
-  width: 170px;
+  width: 100%;
   cursor: pointer; }
   @media only screen and (max-width: 767px) {
     .brand-carousel .single-brand-item {
       height: 100px;
-      width: 140px; } }
+      width: 100%px; } }
   .brand-carousel .single-brand-item .d-table-cell {
     vertical-align: middle; }
   .brand-carousel .single-brand-item img {
@@ -3704,6 +3703,7 @@ width: 30px;
 }
 #Suggestion{
   margin-bottom: 5%;
+  margin-top: 10%;
 }
 #OSI_Model{
   margin-top: 10%;
@@ -3800,4 +3800,78 @@ input[type=submit]:hover {
 .active_select{
   background-color: gray;
   color: #fff;
+}
+
+.footer_last{
+  background: #000;
+  padding: 20px;
+  text-align: center;
+ 
+}
+.footer_last P{
+  font-size: 20px;
+  font-weight: 500;
+}
+.user_name_dorp{
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.user_name_div{
+  margin-right: 3%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+#dropdownMenuLink{
+  color: black;
+}
+.btn-outline-light {
+  color: #f8f9fa;
+  background-color: transparent;
+  background-image: none;
+  border-color: #8252fa;
+}
+.btn-outline-light:hover {
+  color: #ffffff  !important;
+  background-image: linear-gradient(to right, #8252fa 0%, #eca2f1 100%), radial-gradient(circle at top left, #8252fa, #eca2f1);
+  border-color: #f8f9fa;
+}
+.owl-item {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.d-table-cell{
+  border: 2px solid #8D5BF9;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+
+}
+.title-new{
+  background-color: #8D5BF9;
+  color: #fff;
+  padding: 5px;
+  margin-top: -3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.new-pr{
+  padding: 5px;
+}
+.title-new h5{
+  padding-top: 5px;
+}
+
+.new-textp{
+  font-size: 15px;
+  font-weight: 200;
 }

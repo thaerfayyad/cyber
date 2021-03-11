@@ -2134,7 +2134,7 @@
       });
     }
 
-    getJSON('/posts.json').then(function(json) {
+    getJSON('/news.json').then(function(json) {
       // on fulfillment
     }, function(reason) {
       // on rejection
@@ -2145,7 +2145,7 @@
 
     ```js
     Promise.all([
-      getJSON('/posts'),
+      getJSON('/news'),
       getJSON('/comments')
     ]).then(function(values){
       values[0] // => postsJSON
@@ -2370,9 +2370,9 @@
       /**
         `finally` will be invoked regardless of the promise's fate just as native
         try/catch/finally behaves
-      
+
         Synchronous example:
-      
+
         ```js
         findAuthor() {
           if (Math.random() > 0.5) {
@@ -2380,7 +2380,7 @@
           }
           return new Author();
         }
-      
+
         try {
           return findAuthor(); // succeed or fail
         } catch(error) {
@@ -2390,9 +2390,9 @@
           // doesn't affect the return value
         }
         ```
-      
+
         Asynchronous example:
-      
+
         ```js
         findAuthor().catch(function(reason){
           return findOtherAuther();
@@ -2400,7 +2400,7 @@
           // author was either found, or not
         });
         ```
-      
+
         @method finally
         @param {Function} callback
         @return {Promise}

@@ -93,13 +93,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="{{route('resources.create')}}" class="sidebar-link">
+                            <a href="{{route('news.create')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> create</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{route('resources.index')}}" class="sidebar-link">
+                            <a href="{{route('news.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> index</span>
                             </a>

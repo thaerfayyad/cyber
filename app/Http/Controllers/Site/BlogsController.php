@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
-use App\User;
+use App\Models\admin\Blog;
+use App\Models\admin\Book;
+use App\Models\admin\Resource;
 use Illuminate\Http\Request;
-
-class HomeController extends Controller
+use DB;
+class BlogsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,15 +25,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $items = Post::all();
-        return view('site.index' ,compact('items'));
 
-    }
-    public function about()
+    public function index()
+
     {
-        return view('site.about.index');
+        $items =Blog::all();
+        return view('site.blogs.blog',compact('items'));
+    }
+    public function show($id)
+    {
+
+        $item = Blog::findOrFail($id);
+        return view('site.blogs.blog_details',compact('item'));
     }
 
 }

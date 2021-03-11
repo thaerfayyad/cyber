@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
         Route::resource('books','admin\bookController');
         Route::resource('exams','admin\examController');
         Route::resource('resources','admin\resourceController');
-        Route::resource('posts','admin\postController');
+        Route::resource('news','admin\postController');
         Route::resource('blogs','admin\blogController');
         Route::resource('users','admin\UserController');
         Route::get('logout', 'admin\AdminController@logout')->name('admin.logout');

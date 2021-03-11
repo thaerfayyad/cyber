@@ -154,7 +154,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `posts` (
@@ -247,7 +247,7 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `posts`
+-- Indexes for table `news`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -302,7 +302,7 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `posts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
@@ -331,7 +331,7 @@ ALTER TABLE `comments`
   ADD CONSTRAINT `comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `posts`
+-- Constraints for table `news`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;

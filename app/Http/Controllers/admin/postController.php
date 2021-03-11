@@ -17,7 +17,8 @@ class postController extends Controller
      */
     public function index()
     {
-        return view('admin.blogs.index');
+        $items = Post::all();
+        return view('admin.news.home',compact('items'));
     }
 
     /**
@@ -27,7 +28,7 @@ class postController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        return view('admin.news.create');
     }
 
     /**
@@ -40,19 +41,24 @@ class postController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'short_description' => 'required',
             'description' => 'required',
             'image' => 'required',
         ]);
+        $post = new Post();
+        if(  $request->image != Null){
 
-        if(  $request->bookFile != Null) {
+            $imgName =$post->id.'_news'.time().'.'.request()->image->getClientOriginalExtension();
+            $request->image->move('uploads/images/posts',$imgName);
 
-            $book = $request->file('bookFile');
-            $book_new_name = time() . "-" . $book->getClientOriginalName();
-            $book->storeAs('uploads/books', $book_new_name);
-            $book->bookFile = $book_new_name;
+
+            $post ->image= $imgName;
         }
+       $post->title =$request->title;
+       $post->short_description =$request->short_description;
+       $post->description =$request->description;
+       $post->save();
 
-        Post::create($request->except('_token'));
 
         return redirect()->back();
     }
@@ -76,7 +82,8 @@ class postController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item =Post::findOrFail($id);
+        return view('admin.news.edit',compact('item'));
     }
 
     /**
@@ -88,7 +95,20 @@ class postController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::findOrfail($id);
+        if(  $request->image != Null){
+
+            $imgName =$post->id.'_news'.time().'.'.request()->image->getClientOriginalExtension();
+            $request->image->move('uploads/images/posts',$imgName);
+
+
+            $post ->image= $imgName;
+        }
+        $post->title =$request->title;
+        $post->short_description =$request->short_description;
+        $post->description =$request->description;
+        $post->save();
+        return redirect()->route('news.index')->with('success','The Post Updated Successfully');
     }
 
     /**
@@ -99,6 +119,7 @@ class postController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::findOrfail($id)->delete();
+        return redirect()->route('news.index')->with('success','The Post Deleted Successfully');
     }
 }

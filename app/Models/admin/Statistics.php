@@ -5,7 +5,7 @@ namespace App\Models\admin;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Book extends Model
+class Statistics extends Model
 {
     use SoftDeletes;
     protected $table = 'statistics';

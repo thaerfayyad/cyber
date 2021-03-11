@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;
+use App\Models\admin\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +16,8 @@ class blogController extends Controller
      */
     public function index()
     {
-       $items = Post::all();
+        $items = Blog::all();
+
         return view('admin.blogs.home',compact('items'));
     }
 
@@ -43,16 +44,20 @@ class blogController extends Controller
             'description' => 'required',
             'image' => 'required',
         ]);
+        $blog = new Blog();
+        $blog->title  =$request->title;
+        $blog->description  =$request->description;
 
-        if(  $request->image != Null) {
+        if(  $request->image != Null){
 
-            $image = $request->file('image');
-            $image_new_name = time() . "-" . $image->getClientOriginalName();
-            $image->move('uploads/images/blogs', $image_new_name);
-            $image->image = $image_new_name;
+            $imgName = $blog->id.'_blog'.time().'.'.request()->image->getClientOriginalExtension();
+            $request->image->move('uploads/images/blogs',$imgName);
+
+
+            $blog ->image= $imgName;
         }
+        $blog->save();
 
-      Post::create($request->except('_token'));
 
         return redirect()->back();
     }
@@ -76,7 +81,8 @@ class blogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item =   Blog::findOrFail($id);
+        return  view('admin.blogs.edit',compact('item'));
     }
 
     /**
@@ -88,7 +94,22 @@ class blogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    $item =   Blog::findOrFail($id);
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
+
+        if(  $request->image != Null) {
+
+            $image = $request->file('image');
+            $image_new_name = time() . "-" . $image->getClientOriginalName();
+            $image->move('uploads/images/blogs', $image_new_name);
+            $image->image = $image_new_name;
+        }
+        $item->update($request->except('_token'));
+        return redirect()->route('blogs.index')->with('success','the blog updated successfully');
     }
 
     /**
@@ -99,6 +120,10 @@ class blogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Blog::findOrFail($id)->delete();
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog Deleted Successfully');
+
+
     }
 }

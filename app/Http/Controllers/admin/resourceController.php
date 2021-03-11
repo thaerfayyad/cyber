@@ -17,7 +17,7 @@ class resourceController extends Controller
      */
     public function  index()
     {
-      $items = Resource::all();
+      dd($items = Resource::all());
         return view('admin.resources.home',compact('items'));
     }
 

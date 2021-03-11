@@ -7,16 +7,17 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add New Blog</h4>
+                        <h4 class="text-success text-lg-center">Add The Library</h4>
 
                     </div>
+
+
                     <hr>
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('blogs.update',$item->id)}}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('news.store')}}">
                         @csrf
-                        {{ method_field('PUT') }}
                         <div class="card-body">
                             <h4 class="card-title"></h4>
                             <div class="row">
@@ -24,7 +25,7 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}">
+                                            <input type="text" class="form-control" id="title" name="title"  >
                                             @error('title')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -32,12 +33,41 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">image</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="form-control" id="image" name="image"  >
+                                            @error('image')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">short description</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="short_description" id="" cols="40" rows="5"></textarea>
+                                            @error('short_description')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">description</label>
                                         <div class="col-sm-9">
-                                            <textarea name="description" id="" cols="40" rows="5" > {{$item->description}}</textarea>
+                                            <textarea name="description" id="" cols="40" rows="5"></textarea>
                                             @error('description')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -45,29 +75,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-6">
-                                    <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">image</label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control" id="img" name="image" required>
-                                            @error('image')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-6" style="float: right">
-                                    <h3>image</h3>
-                                    <img src="{{asset('public/uploads/images/blogs/'.$item->image)}}" alt="" title="" class="rounded-circle" width="75">
-                                </div>
-                            </div>
                         </div>
-
                         <hr>
                         <div class="card-body">
                             <div class="form-group m-b-0 text-center">
-                                <button type="submit" class="btn btn-info waves-effect waves-light">save</button>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
 
                             </div>
                         </div>

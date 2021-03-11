@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">title <a href="" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
+                        <h2 class="card-title">All Of The Blogs  <a href="{{route('blogs.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
                         <div class="table-responsive">
 
                             <table id="file_export" class="table table-striped table-bordered display">
@@ -45,7 +45,9 @@
                                         </td>
                                         <td>{{$val->title}}</td>
                                         <td>{{$val->description}}</td>
-                                        <td>  <img src="{{asset('/uploads/images/blogs'.'/'.$val->image)}}" alt="" title="" class="rounded-circle" width="75">{{$val->image}}</td>
+                                        <td>
+                                         <img src="{{url('/uploads/images/blogs/'.$val->image)}}" alt="{{$val->image}}" title=""  width="80"  >
+                                        </td>
                                         <td>{{$val->created_at}}</td>
 
 

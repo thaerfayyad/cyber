@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">title <a href="" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
+                        <h2 class="card-title">All The Posts  <a href="{{route('news.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
                         <div class="table-responsive">
 
                             <table id="file_export" class="table table-striped table-bordered display">
@@ -17,12 +17,12 @@
                                 <thead >
                                 <tr>
 
-                                 <th>id</th>
-                                 <th>operations</th>
-                                 <th>name</th>
+                                 <th>Id</th>
+                                 <th>Operations</th>
+                                 <th>Title</th>
                                  <th>image</th>
-                                 <th>category</th>
-                                 <th>details</th>
+                                 <th>short_description</th>
+                                 <th>description</th>
                                  <th>date</th>
 
                                 </tr>
@@ -34,8 +34,8 @@
 
                                         <td>{{$key+1}}</td>
                                         <td>
-                                            <a href="{{url(LaravelLocalization::setLocale().'/admin/product/'.$val->id.'/edit')}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
-                                            <form action="{{ route('product.destroy',$val->id) }}" method="post" class="form-check-inline" >
+                                            <a href="{{'/admin/news/'.$val->id.'/edit'}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
+                                            <form action="{{ route('news.destroy',$val->id) }}" method="post" class="form-check-inline" >
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <button class="btn btn-danger waves-effect waves-light" type="submit" >
@@ -44,17 +44,17 @@
                                             </form>
 
                                         </td>
-                                        <td>{{$val->name}}</td>
-                                        <td>
-                                            <img src="{{asset('upload/products/image').'/'.$val->photo}}" alt="{{$val->photo}}" width="70px" height="70"></td>
-                                        </td>
-                                        <td>{{@$val->category->name}}</td>
-                                        <td>{{$val->details}}</td>
+                                        <td>{{$val->title}}</td>
+                                        <td>  <img src="{{asset('/uploads/images/posts/'.$val->image)}}" alt="" title="" class="rounded-circle" width="75"></td>
+                                        <td>{{$val->short_description}}</td>
+                                        <td>{{$val->description}}</td>
                                         <td>{{$val->created_at}}</td>
 
 
                                     </tr>
                                 @endforeach
+
+
 
                                 </tbody>
 
