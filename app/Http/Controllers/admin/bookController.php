@@ -51,19 +51,24 @@ class bookController extends Controller
             'semester' => 'required',
             'library' => 'required',
             'book' => 'required',
-            'bookFile'   => 'mimes:doc,pdf,docx,zip'
+            'bookFile'   => 'required|mimes:doc,pdf,docx,zip'
         ]);
-
-        if(  $request->bookFile != Null) {
-
-            $book = $request->file('bookFile');
-            $book_new_name = time() . "-" . $book->getClientOriginalName();
-            $book->storeAs('uploads/books', $book_new_name);
-            $book->bookFile = $book_new_name;
+        $book = new Book();
+        if(  $request->bookFile != Null){
+            $bookName = $book->id.'_book'.time().'.'.request()->bookFile->getClientOriginalExtension();
+            $request->bookFile->move('uploads/books',$bookName);
+            $book->bookFile = $bookName;
         }
-
-        Book::create($request->except('_token'));
-
+        $book->name = $request->name ;
+        $book->details = $request->details ;
+        $book->author = $request->author ;
+        $book->year = $request->year ;
+        $book->semester = $request->semester ;
+        $book->library = $request->library ;
+        $book->book = $request->book ;
+        $book->bookFile = $request->bookFile ;
+        $book->status = '1' ;
+        $book->save();
         return redirect()->back();
     }
 

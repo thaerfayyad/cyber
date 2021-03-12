@@ -19,13 +19,13 @@
                                 <li class="nav-item"><a class="nav-link" href="{{route('resources.home')}}" style=" text-transform: capitalize">Resources</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}"  style=" text-transform: capitalize">Student library</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('general.index')}}"  style=" text-transform: capitalize">General library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"  style=" text-transform: capitalize">Network Layer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('layers.page')}}"  style=" text-transform: capitalize">Network Layer</a></li>
 
                             </ul>
                         </li>
 
                         <li class="nav-item"><a class="nav-link"  href="{{route('blogs.home.page')}}"  style=" text-transform: capitalize">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="./about.html"  style=" text-transform: capitalize">About As</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{{route('about')}}"  style=" text-transform: capitalize">About As</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact" style=" text-transform: capitalize">Contact</a></li>
 
 
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="./Add_attachment.html" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
+                        <li class="nav-item"><a href="{{route('attachment.create')}}" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
                     </ul>
                 </div>
             </div>

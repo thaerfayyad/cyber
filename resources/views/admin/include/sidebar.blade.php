@@ -138,13 +138,13 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="index.html" class="sidebar-link">
+                            <a href="{{route('layers.create')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> create</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="index2.html" class="sidebar-link">
+                            <a href="{{route('layers.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> index</span>
                             </a>

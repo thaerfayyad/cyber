@@ -51,10 +51,8 @@
                     <div class="common_style">
                         <h3>Our visions</h3>
                         <p class="p_about">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci officia fugit repellendus atque, minus, quae velit iure impedit debitis asperiores consequatur magnam quod libero saepe aut autem delectus consequuntur optio?
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, rem! Qui corporis, tempore eius, error vitae libero asperiores aliquam assumenda maxime sed atque expedita laboriosam sequi minus reprehenderit. Harum, dolorum.
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla voluptates tempore enim asperiores suscipit quaerat, nam officiis maiores quibusdam pariatur molestias numquam mollitia soluta culpa adipisci doloribus delectus alias neque?
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, sint! Provident numquam reiciendis corrupti dolorem veniam praesentium nulla alias, eaque ipsam odio dolores labore fugiat minus ab similique voluptatibus excepturi!
+                            The main goal from this website is to help people protecting their wireless sensor networks. We focused on this type of networks because we are in age of Artificial Intelligent and sensors becoming every where so stealing information from sensor networks could cause huge dangerous .Our vision is providing search engine based on machine learning using text classification technique ,so when user copy the attack command to the search engine , the search engine will start looking for keywords to defined which type of attacks the victim faced .
+
                         </p>
 
 

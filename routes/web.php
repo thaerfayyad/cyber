@@ -22,6 +22,9 @@ Auth::routes();
 
     Route::get('/home','Site\homeController@index')->name('index');
     Route::get('about','Site\homeController@about')->name('about');
+    Route::get('attachment-create','Site\homeController@create')->name('attachment.create');
+    Route::post('attachment-store','Site\homeController@store')->name('attachment.store');
+    Route::get('layer','Site\LayersController@index')->name('layers.page');
     Route::get('/','Site\homeController@index');
     Route::get('Sign','Site\UserController@create')->name('signup');
     Route::post('store','Site\UserController@store')->name('users.save');

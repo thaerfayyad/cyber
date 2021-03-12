@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/home','admin\dashboardController@index')->name('dashboard');
         Route::resource('books','admin\bookController');
         Route::resource('exams','admin\examController');
+        Route::resource('layers','admin\layersController');
         Route::resource('resources','admin\resourceController');
         Route::resource('news','admin\postController');
         Route::resource('blogs','admin\blogController');

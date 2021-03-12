@@ -37,6 +37,7 @@
                             <h4 class="Ex_Name">Books</h4>
                         </div>
                         @isset($books)
+
                             @foreach($books as $book)
                                 <div class="exam_tab">
                                     <div class="div_examNUM">
@@ -68,7 +69,7 @@
                                     </Div>
 
                                 </div>
-                            @endforeach
+                            @endforeachلا
                         @endisset
 
 
