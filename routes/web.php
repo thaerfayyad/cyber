@@ -36,9 +36,15 @@ Auth::routes();
     Route::get('resources-library-general', 'site\BookController@resources')->name('resources.book.home');
     Route::get('exercises-library-general', 'site\BookController@exercises')->name('exercises.book.home');
     Route::get('resources', 'site\ResourcesController@index')->name('resources.home');
-    Route::get('blogs' , 'site\blogsController@index')->name('blogs.home.page');
-    Route::get('blogs-details/{id}' , 'site\blogsController@show')->name('blogs.details.page');
+    Route::get('blogs' , 'site\BlogsController@index')->name('blogs.home.page');
+    Route::get('blogs-details/{id}' , 'site\BlogsController@show')->name('blogs.details.page');
+    Route::get('comments' , 'site\BlogsController@comments')->name('comments.index');
+    Route::delete('destroy/{id}' , 'site\BlogsController@destroy')->name('comments.destroy');
     Route::get('news-details/{id}' , 'site\NewsController@show')->name('news.details.page');
+Route::get('getout','site\UserController@LogOut')->name('getout');
+
+
+
 
     //ajax insert post
     Route::post('insert/post','site\blogsController@addComment')->name('add.post.comment');

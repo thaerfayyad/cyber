@@ -20,6 +20,7 @@
                                     <th>id</th>
                                     <th>operations</th>
                                     <th>name</th>
+                                    <th>type</th>
                                     <th>email</th>
                                     <th>date</th>
 
@@ -43,6 +44,7 @@
 
                                         </td>
                                         <td>{{$val->name}}</td>
+                                        <td>{{$val->getType()}}</td>
                                         <td>{{$val->email}}</td>
                                         <td>{{$val->created_at}}</td>
 

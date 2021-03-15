@@ -27,12 +27,6 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">
-                                <i class="icon-Record"></i>
-                                <span class="hide-menu"> create</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
                             <a href="{{route('users.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
                                 <span class="hide-menu"> index</span>
@@ -126,11 +120,14 @@
                                 <span class="hide-menu"> index</span>
                             </a>
                         </li>
-
-
+                        <li class="sidebar-item">
+                            <a href="{{route('comments.index')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu"> comments</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="icon-Car-Wheel"></i>

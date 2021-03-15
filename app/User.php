@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany('App\Models\admin\Blog'  );
     }
+    public function getType()
+    {
+        return $this->type == 1 ? 'General':'Student' ;
+    }
 }

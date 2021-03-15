@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    @section('title', 'Sign Up')
+    <title>{{ config('title', 'Sign Up') }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('site/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('site/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -26,6 +26,8 @@
                 <img src="{{asset('site/img/logo.png')}}" class="logo_design">
             </div>
             <br>
+            <h3 class="text-primary text-center">Sign Up</h3>
+            <br><br>
             <form method="POST" action="{{route('users.save')}}">
                 @csrf
                 <div class="form_login">
@@ -58,12 +60,22 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                <div class="btn_login" style="margin: 5% !important;">
+                    <div class="input_div">
+                        <select  class="input_form"  name="type" id="">
+                            <option disabled value="">select user's type</option>
+                            <option value="1">General</option>
+                            <option value="2">Student</option>
+                        </select>
+                        @error('type')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="btn_login" style="margin: 5% !important;">
                     <a href="./newpassword.html"><button class="login_now">continue</button></a>
                 </div>
 
                 <div class="have_account">
-                    <p>I already have an account <span><a href="{{route('users.login')}}">Login now</a></span></p>
+                    <h6>I already have an account <span><a href="{{route('users.login')}}">Login now</a></span></h6>
                 </div>
 
 

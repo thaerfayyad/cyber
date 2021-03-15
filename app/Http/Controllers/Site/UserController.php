@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use auth;
 
 class UserController extends Controller
 {
@@ -59,17 +60,24 @@ class UserController extends Controller
     {
         $request->validate([
             'userName' => 'required',
+            'type' => 'required',
             'email' => 'required|email|unique:users,email,',
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
         $user = new User();
         $user ->name = $request->input('userName');
         $user ->email = $request-> input('email');;
+        $user ->type = $request->input('type');
         $user ->password = bcrypt($request->password);
         $user ->save();
         return redirect()->route('index');
 
 
+    }
+    public function LogOut()
+    {
+        Auth::guard('web')->logout();
+        return Redirect()->route('index');
     }
 
 }

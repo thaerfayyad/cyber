@@ -31,8 +31,9 @@ class BlogsController extends Controller
     public function index()
 
     {
+        $comment = Comment::all();
         $items =Blog::paginate(2);
-        return view('site.blogs.blog',compact('items'));
+        return view('site.blogs.blog',compact('items','comment'));
     }
     public function show($id)
     {
@@ -55,5 +56,15 @@ class BlogsController extends Controller
         ]);
        return response()->json((['success'=>$comment]));
     }
-
+public function comments()
+    {
+        $items = Comment::all();
+        return view('admin.blogs.comment',compact('items'));
+    }
+    public function destroy($id)
+    {
+        Comment::findOrFail($id)->delete();
+        return redirect()->route('comments.index')
+            ->with('success', 'Comments Deleted Successfully');
+    }
 }

@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    @section('title', 'Log In')
+    <title>{{ config('title', 'Log In') }} </title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{{asset('site/css/style.default.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('site/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -26,15 +27,11 @@
                 <img src="{{asset('site/img/logo.png')}}" class="logo_design">
             </div>
             <br>
+            <h3 class="text-primary text-center">Sign In</h3>
+            <br><br>
             <form method="POST" action="{{route('users.sign')}}">
                 @csrf
                 <div class="form_login">
-                    <div class="input_div">
-                        <input type="text" class="input_form" placeholder="User Name" name="userName" value="{{ old('userName') }}" required autocomplete="userName" autofocus >
-                        @error('userName')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
 
                     <div class="input_div">
                         <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -49,28 +46,11 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="input_div">
-                        <input type="password" class="input_form" placeholder="Confirm Password" name="Confirm_Password">
-                        @error('Confirm_Password"')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
+                    <div class="remember_div">
+                        <input type="checkbox" class="remember">
+                        <p class="remember-txt">Remember me</p>
                     </div>
-
-                    <div class="input_div select_type">
-                        <div class="box_indenty">
-                            <i class="fa fa-graduation-cap graduation" aria-hidden="true"></i>
-                            <br>
-                            <p>Student</p>
-                        </div>
-
-                        <div class="box_indenty_general">
-                            <i class="fa fa-users users" aria-hidden="true"></i>
-                            <br>
-                            <p>General</p>
-                        </div>
-                    </div>
-
+                    <br>
 
                     <div class="btn_login" style="margin: 5% !important;">
                         <a href="#"><button class="login_now">continue</button></a>

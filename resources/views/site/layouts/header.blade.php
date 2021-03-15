@@ -30,28 +30,35 @@
 
 
                     </ul>
-
+                    @guest
                     <a  class="btn  btn-primary "  href="{{route('signup')}}">Sign Up</a>
                     <div class="dropdown user_name_div">
-
+                    @endguest
                         @guest
-                        <a class="btn  btn-circle dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            user name
-
-                          </a>
                           @else
-                          {{ Auth::user()->name }}
+                            <div class="dropdown user_name_div">
+                                <a class="btn  btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="Profile.html">Account</a>
+                                    <a class="dropdown-item" href="{{route('getout')}}">Logout </a>
+                                </div>
+                            </div>
+
                         @endguest
 
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="Profile.html"  style=" text-transform: capitalize">Account</a>
-                            <a class="dropdown-item" href="login.html"  style=" text-transform: capitalize">Logout </a>
-                        </div>
+
                     </div>
+                    @guest
+                    @else
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item"><a href="{{route('attachment.create')}}" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
                     </ul>
+                    @endguest
                 </div>
             </div>
         </nav>

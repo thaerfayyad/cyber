@@ -9,7 +9,7 @@
                     <div class="single-post row">
                         <div class="col-lg-12">
                             <div class="feature-img">
-                                <img class="img-fluid" src="{{url('/uploads/images/blogs/'.$item->image)}}"alt="">
+                                <img class="img-fluid" src="{{url('/uploads/images/blogs/'.$item->image)}}"alt="" width="500">
                             </div>
                         </div>
                         <div class="col-lg-3  col-md-3">
@@ -48,7 +48,7 @@
                                         <img src="#" alt="">
                                     </div>
                                     <div class="desc">
-                                        <h5><a href="#">{{ App\User::find($comment->user_id)->name }}</a></h5>
+                                        <h5><p >{{ App\User::find($comment->user_id)->name }}</p></h5>
                                         <p class="date"> {{ $comment->created_at->format('y/m/d') }}
                                         <p class="comment">
                                             {{ $comment->comment }}
@@ -61,10 +61,10 @@
 
                     </div>
 
-
+                    @guest
+                    @else
                     <div class="comment-form">
                         <input type="hidden" class="post_id" value="{{ $item->id }}">
-                        <h4>Leave a Reply</h4>
                         <div>
                             <div class="form-group">
                                 <textarea class="form-control mb-10 mycomment " rows="5" name="message" placeholder="Messege .... " required=""></textarea>
@@ -72,6 +72,7 @@
                             <button  class="primary-btn primary_btn mycomment_button" ><span>Post Comment</span></button>
                         </div>
                     </div>
+                    @endguest
                 </div>
 
             </div>
@@ -105,7 +106,7 @@
                                 <img src="#" alt="">
                             </div>
                             <div class="desc">
-                                <h5><a href="#">${response.success.id}</a></h5>
+                                <h5><p>${response.success.id}</p></h5>
                                 <p class="date">${response.success.created_at} </p>
                                 <p class="comment">
                                     ${response.success.comment}
