@@ -10,7 +10,13 @@ class Blog extends Model
     use SoftDeletes;
     protected $table = 'blogs';
     protected $guarded = [];
-    protected $hidden = ['created_at','	updated_at','deleted_at'];
 
 
+    public function comments(){
+        return $this->hasMany(' App\Models\Comment');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User' );
+    }
 }

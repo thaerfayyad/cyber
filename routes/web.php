@@ -40,3 +40,8 @@ Auth::routes();
     Route::get('blogs-details/{id}' , 'site\blogsController@show')->name('blogs.details.page');
     Route::get('news-details/{id}' , 'site\NewsController@show')->name('news.details.page');
 
+    //ajax insert post
+    Route::post('insert/post','site\blogsController@addComment')->name('add.post.comment');
+
+    //ajax get layer
+    Route::get('get/layer' , 'Site\LayersController@getlayer')->name('get.layer');

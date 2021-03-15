@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add The Library</h4>
+                        <h4 class="text-success text-lg-center">Add The News</h4>
 
                     </div>
 

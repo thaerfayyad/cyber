@@ -33,12 +33,12 @@
                                         </thead>
                                         <tbody class="aaaa">
                                             @foreach ($charts as $index=>$chart)
-                                                <tr class="delete_{{ $chart->id }}">
+                                                <tr>
                                                     <th scope="row">{{ $index+1 }}</th>
                                                     <td>{{ $chart->x }}</td>
                                                     <td>{{ $chart->y }}</td>
                                                     <td>
-                                                        <button class="btn btn-danger btn-sm delete_message" id="{{ $chart->id  }}">Delete</button>
+                                                        <button class="btn btn-danger btn-sm">Delete</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -69,23 +69,6 @@
     $(document).ready(function() {
         $('#example').DataTable();
     });
-
-    $(".delete_message").click( function(){
-        var id = this.id;
-        $.ajax({
-              url: "{{ route('ajax.delete.chart') }}",
-              type:"post",
-              data:{
-                  "_token": "{{ csrf_token() }}",
-                  id:id,
-              },
-              success:function(response){
-                $('.delete_'+id).remove();
-                swal("Deleted Successfully", "success", "success");
-              }
-            });
-    });
-
 
     //ajax for insert data
     $("#myInsert").click( function(){

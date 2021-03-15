@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Auth;
+use App\User;
 
 class blogController extends Controller
 {
@@ -45,8 +47,9 @@ class blogController extends Controller
             'image' => 'required',
         ]);
         $blog = new Blog();
-        $blog->title  =$request->title;
-        $blog->description  =$request->description;
+        $blog->user_id  =  Auth::user()->id;
+        $blog->title  = $request->title;
+        $blog->description  = $request->description;
 
         if(  $request->image != Null){
 

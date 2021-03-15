@@ -36,16 +36,12 @@ class UserController extends Controller
     {
 //        make validations
 //        dd($request->all());
-
- $request->validate([
-            'userName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-
+        // return $request;
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
         $remember_me = $request->has('remember_me') ? true : false;
-
-
         if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
             // notify()->success('تم الدخول بنجاح  ');
             return redirect()->route('index');

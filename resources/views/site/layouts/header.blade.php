@@ -33,10 +33,16 @@
 
                     <a  class="btn  btn-primary "  href="{{route('signup')}}">Sign Up</a>
                     <div class="dropdown user_name_div">
-                        <a class="btn  btn-circle dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          user name
 
-                        </a>
+                        @guest
+                        <a class="btn  btn-circle dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            user name
+
+                          </a>
+                          @else
+                          {{ Auth::user()->name }}
+                        @endguest
+
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="Profile.html"  style=" text-transform: capitalize">Account</a>

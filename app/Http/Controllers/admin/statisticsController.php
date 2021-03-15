@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Chart;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,9 @@ class statisticsController extends Controller
      */
     public function index()
     {
-      //
+        $charts = Chart::all();
+        // return $charts;
+        return view('admin.statistics.home' , compact('charts'));
     }
 
     /**
@@ -37,7 +40,14 @@ class statisticsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'x' => 'required',
+            'y' => 'required',
+        ]);
+        // return response()->json($request);
+        $chart = Chart::create($request->all());
+        $charts  = count(Chart::all());
+        return response()->json(['success'=>$chart , 'index'=>$charts]);
     }
 
     /**
@@ -80,8 +90,10 @@ class statisticsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $chart = Chart::find($request->id);
+        $chart->delete();
+        return response()->json(['success']);
     }
 }

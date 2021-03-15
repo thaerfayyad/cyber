@@ -160,9 +160,9 @@
                     </a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item">
-                            <a href="{{route('contact')}}" class="sidebar-link">
+                            <a href="{{route('admin.statistics')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
-                                <span class="hide-menu"> index</span>
+                                <span class="hide-menu">Home</span>
                             </a>
                         </li>
                     </ul>

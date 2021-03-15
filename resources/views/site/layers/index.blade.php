@@ -7,7 +7,7 @@
                     <div class="main_title">
                         <p class="top_title">Discover&learn</p>
                         <h2>OSI MODEL</h2>
-                        <p>Seven layers about the OSI model, which we'll get to know better below</p>
+                        <p>Seven layers about the OSI model, which we,ll get to know better below</p>
                     </div>
                 </div>
             </div>
@@ -19,13 +19,13 @@
         </div>
         <div class="col-lg-6 offset-lg-2">
             <div class="buttons_div">
-                <button class="layer_osi action1">Application Layer</button>
-                <button class="layer_osi action2">Presentation Layer</button>
-                <button class="layer_osi action3">Session Layer</button>
-                <button class="layer_osi action4">Transport Layer</button>
-                <button class="layer_osi action5">Network Layer</button>
-                <button class="layer_osi action6">Data Link Layer</button>
-                <button class="layer_osi action7">Physical Layer</button>
+                <button class="layer_osi action1" id="1">Application Layer</button>
+                <button class="layer_osi action2" id="2" >Presentation Layer</button>
+                <button class="layer_osi action3" id="3" >Session Layer</button>
+                <button class="layer_osi action4" id="4" >Transport Layer</button>
+                <button class="layer_osi action5" id="5" >Network Layer</button>
+                <button class="layer_osi action6" id="6" >Data Link Layer</button>
+                <button class="layer_osi action7" id="7" >Physical Layer</button>
 
             </div>
         </div>
@@ -119,6 +119,55 @@
                         </div>
                     </div>
                 </div>
-            </section
+            </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $(".layer_osi").click( function(){
+
+            var id = this.id;
+           //alert(id);
+           $.ajax({
+            url: "{{ route('get.layer') }}",
+            type:"get",
+            data:{
+                "_token": "{{ csrf_token() }}",
+                id:id,
+            },
+            success:function(response){
+                console.log(response.success.img_threats);
+
+                var threats =
+                `
+                <p class="line">Title Layer PROTOCOLS</p>
+                <div class="row recent_update_text align-items-center">
+
+                    <div class="col-lg-9">
+
+                        <div class="common_style row">
+
+                            <div class="col-sm-12 col-md-4">
+                                <h4 class="title_first">${response.success.title_protocol}</h4>
+                                <p class="description">
+                                  ${response.success.descriptions_protocol}
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                `;
+                $('#threats').empty();
+                $('#threats').append(threats);
+
+
+            }
+        });
+        });
+    </script>
 
 @stop
+
+

@@ -31,135 +31,99 @@
                         <div class="col-lg-9 col-md-9 blog_details">
                             <h2>{{$item->title}}</h2>
                             <p class="excert">
-                                {{$item->description}} .
+                                {{$item->description}}
                             </p>
 
                         </div>
 
                     </div>
+                    <h4 style="text-align: center"><span class="dqwdqwdqwd" >{{ count($comments) }} </span>Comments</h4>
 
-                    <div class="comments-area">
-                        <h4>05 Comments</h4>
-                        <div class="comment-list">
+                    <div class="comment-list">
+
+                        @foreach ($comments as  $comment)
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
                                         <img src="#" alt="">
                                     </div>
                                     <div class="desc">
-                                        <h5><a href="#">Emilly Blunt</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        <h5><a href="#">{{ App\User::find($comment->user_id)->name }}</a></h5>
+                                        <p class="date"> {{ $comment->created_at->format('y/m/d') }}
                                         <p class="comment">
-                                            Never say goodbye till the end comes!
+                                            {{ $comment->comment }}
                                         </p>
                                     </div>
                                 </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
+
                             </div>
-                        </div>
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="{{asset('siteimg/blog/c2.jpg')}}" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Elsie Cunningham</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list left-padding">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c3.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Annie Stephens</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c4.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Maria Luna</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment-list">
-                            <div class="single-comment justify-content-between d-flex">
-                                <div class="user justify-content-between d-flex">
-                                    <div class="thumb">
-                                        <img src="img/blog/c5.jpg" alt="">
-                                    </div>
-                                    <div class="desc">
-                                        <h5><a href="#">Ina Hayes</a></h5>
-                                        <p class="date">December 4, 2017 at 3:12 pm </p>
-                                        <p class="comment">
-                                            Never say goodbye till the end comes!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
+
+
                     <div class="comment-form">
+                        <input type="hidden" class="post_id" value="{{ $item->id }}">
                         <h4>Leave a Reply</h4>
-                        <form>
-                            <div class="form-group form-inline">
-                                <div class="form-group col-lg-6 col-md-6 name">
-                                    <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 email">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                </div>
-                            </div>
+                        <div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                                <textarea class="form-control mb-10 mycomment " rows="5" name="message" placeholder="Messege .... " required=""></textarea>
                             </div>
-                            <div class="form-group">
-                                <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-                            </div>
-                            <a href="#" class="primary-btn primary_btn"><span>Post Comment</span></a>
-                        </form>
+                            <button  class="primary-btn primary_btn mycomment_button" ><span>Post Comment</span></button>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
 
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $(".mycomment_button").click( function(){
+
+            var post = $(".mycomment").val();
+            var post_id = $(".post_id").val();
+
+
+            $.ajax({
+                url: "{{ route('add.post.comment') }}",
+                type:"post",
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    post:post,
+                    post_id:post_id,
+                },
+                success:function(response){
+                    console.log(response.success);
+                    var comment = `
+                    <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                            <div class="thumb">
+                                <img src="#" alt="">
+                            </div>
+                            <div class="desc">
+                                <h5><a href="#">${response.success.id}</a></h5>
+                                <p class="date">${response.success.created_at} </p>
+                                <p class="comment">
+                                    ${response.success.comment}
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    `;
+
+
+
+
+                    $('.comment-list').append(comment);
+                    //swal("تم الحذف بنجاح", "success", "success");
+                }
+            });
+        });
+    </script>
 @stop
