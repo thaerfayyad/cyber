@@ -41,6 +41,9 @@ Auth::routes();
     Route::get('comments' , 'site\BlogsController@comments')->name('comments.index');
     Route::delete('destroy/{id}' , 'site\BlogsController@destroy')->name('comments.destroy');
     Route::get('news-details/{id}' , 'site\NewsController@show')->name('news.details.page');
+    Route::post('attachments/store' , 'site\AttachmentController@store')->name('attachment.store');
+    Route::post('blog-store' , 'site\AttachmentController@userStore')->name('user.blog.Store');
+
 Route::get('getout','site\UserController@LogOut')->name('getout');
 
 
@@ -51,3 +54,5 @@ Route::get('getout','site\UserController@LogOut')->name('getout');
 
     //ajax get layer
     Route::get('get/layer' , 'Site\LayersController@getlayer')->name('get.layer');
+    //ajax change the status
+Route::get('/changeStatus', 'Admin\bookController@changeStatus');

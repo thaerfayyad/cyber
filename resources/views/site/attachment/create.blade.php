@@ -13,7 +13,7 @@
                 </div >
                 <p class="p_destption">
                     This is a form that he can upload attachments to it to be reviewed by the admin and then approved and shared with the public                    </p>
-                <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('books.store')}}">
+                <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('attachment.store')}}">
                     @csrf
 
                     <div class="form-group">
@@ -29,10 +29,11 @@
                             * Attachment Type:</label>
 
                         <div class="dropdown form-control">
-                            <select name="cars" id="cars" required>
-                                <option  class="books_link">Books</option>
-                                <option  class="exams_link">Exams</option>
-                                <option  class="resources_link">Resources</option>
+                            <select name="book" required>
+                                <option disabled value="">Select The Book's Type</option>
+                                <option  class="books_link" value="1">Books</option>
+                                <option  class="exams_link" value="2">Resources</option>
+                                <option  class="resources_link" value="3">Exams</option>
                             </select>
                         </div>
                     </div>
@@ -43,10 +44,10 @@
                     <div class="form-group">
                         <label for="name">
                             Description:</label>
-                        <textarea class="form-control" type="textarea" name="description"
+                        <textarea class="form-control" type="textarea" name="details"
                                   id="message" placeholder="Write a short description about attachment"
                                   maxlength="6000" rows="7" required></textarea>
-                        @error('description')
+                        @error('details')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -55,12 +56,10 @@
                     <div class="form-group">
                         <label for="name">
                            * Attachment Upload:</label>
-                        <input type="file" class="form-control" id="bookFile" name="bookFile" required  >
+                        <input type="file" class="form-control" id="bookFile" name="bookFile" required >
 
                     </div>
-                    @error('bookFile')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+
 
 
                     <button type="submit" class="btn btn-lg  pull-right"

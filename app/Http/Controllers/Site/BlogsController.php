@@ -67,4 +67,5 @@ public function comments()
         return redirect()->route('comments.index')
             ->with('success', 'Comments Deleted Successfully');
     }
+
 }

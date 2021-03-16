@@ -46,14 +46,13 @@ class bookController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'details' => 'required',
-            'author' => 'required',
             'year' => 'required',
             'semester' => 'required',
             'library' => 'required',
             'book' => 'required',
-            'status' =>'required',
             'bookFile'   => 'required|mimes:doc,pdf,docx,zip'
         ]);
+
         $book = new Book();
         if(  $request->bookFile != Null){
             $bookName = $book->id.'_book'.time().'.'.request()->bookFile->getClientOriginalExtension();
@@ -135,4 +134,14 @@ class bookController extends Controller
         return redirect()->route('books.index')
             ->with('success', 'Book Deleted Successfully');
     }
+    public function changeStatus(Request $request)
+
+        {
+            $book = Book::find($request->id);
+            $book->status = $request->status;
+            $book->save();
+
+
+            return response()->json(['success'=>'Status change successfully.']);
+        }
 }

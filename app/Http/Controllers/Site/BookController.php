@@ -29,7 +29,7 @@ class BookController extends Controller
 
         $books = Book::where('library', 1)->get();
 
-        return view('site.books.index', compact('books'));
+        return view('site.books.book', compact('books'));
     }
     public function student()
     {
@@ -37,7 +37,7 @@ class BookController extends Controller
 
        $books = Book::where('library', 2)->get();
 
-        return view('site.books.index', compact('books'));
+        return view('site.books.book', compact('books'));
     }
     public function book()
     {
@@ -45,23 +45,23 @@ class BookController extends Controller
 
         $books = Book::where('book', 1)->get();
 
-        return view('site.books.index', compact('books'));
+        return view('site.books.book', compact('books'));
     }
     public function resources()
     {
 
 
-        $books = Book::where('book', 2)->get();
+        $resources = Book::where('book', 2)->get();
 
-        return view('site.books.index', compact('books'));
+        return view('site.books.resource', compact('resources'));
     }
     public function exercises()
     {
 
 
-        $books = Book::where('book', 3)->get();
+        $exercises = Book::where('book', 3)->get();
 
-        return view('site.books.index', compact('books'));
+        return view('site.books.exercises', compact('exercises'));
     }
 
 }

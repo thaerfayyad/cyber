@@ -27,11 +27,9 @@
                         <li class="nav-item"><a class="nav-link"  href="{{route('blogs.home.page')}}"  style=" text-transform: capitalize">Blog</a></li>
                         <li class="nav-item"><a class="nav-link"  href="{{route('about')}}"  style=" text-transform: capitalize">About As</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact" style=" text-transform: capitalize">Contact</a></li>
-
-
                     </ul>
                     @guest
-                    <a  class="btn  btn-primary "  href="{{route('signup')}}">Sign Up</a>
+                    <a  class="primary_btn "  href="{{route('signup')}}" style="text-transform: capitalize ;width: 100px;height: 50px " >Sign Up</a>
                     <div class="dropdown user_name_div">
                     @endguest
                         @guest

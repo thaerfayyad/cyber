@@ -36,10 +36,10 @@
                         <div class="Exams_title">
                             <h4 class="Ex_Name">Books</h4>
                         </div>
-                        @isset($books)
 
+                            @if(count($books)==0)
                                 <h3 style="text-align: center"> No Items Available</h3>
-
+                        @else
                             @foreach($books as $book)
                                 <div class="exam_tab">
                                     <div class="div_examNUM">
@@ -72,8 +72,8 @@
 
                                 </div>
                             @endforeach
-                        @endisset
 
+                        @endif
 
 
                     </Div>

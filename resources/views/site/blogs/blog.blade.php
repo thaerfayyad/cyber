@@ -9,9 +9,6 @@
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
                         @isset($items)
-
-                            <h3 style="text-align: center"> No Items Available</h3>
-
                             @foreach($items as $item)
                         <article class="row blog_item">
                             <div class="col-md-3">
@@ -37,6 +34,7 @@
                         </article>
                             @endforeach
 
+
                         @endisset
 
 
@@ -54,32 +52,23 @@
                             <div class="comment-form">
                                     @guest
                                 @else
-                                <form>
+                                <form action="{{route('user.blog.Store')}}" method="post">
+                                    @csrf
                                     <h4 class="widget_title">New Post</h4>
                                     <div class="form-group">
-
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
-                                        </div>
+                                        <input type="text" class="form-control" name="title" placeholder="Title OF Blog"  required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                                        <textarea class="form-control mb-10" rows="5" name="description" placeholder="Description Of Blog" required></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="formFileLg" class="form-label">Upload a photo</label>
-                                        <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                        <input type="file"  name="image"  class="form-control  form-control-lg">
                                     </div>
                                     <br>
 
-                                    <a href="#" class="primary-btn primary_btn"><span>Publish</span></a>
+                                    <button class="primary-btn primary_btn"><span>Publish</span></button>
                                 </form>
                                 @endguest
                             </div>

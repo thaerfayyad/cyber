@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\admin\book;
+
 use App\Models\admin\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -17,7 +17,7 @@ class resourceController extends Controller
      */
     public function  index()
     {
-      dd($items = Resource::all());
+    $items = Resource::all();
         return view('admin.resources.home',compact('items'));
     }
 

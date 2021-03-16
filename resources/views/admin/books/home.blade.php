@@ -19,8 +19,8 @@
 
                                  <th>Id</th>
                                  <th>Operations</th>
-                                 <th>Title</th>
                                  <th>Status</th>
+                                 <th>Title</th>
                                  <th>Author</th>
                                  <th>Year</th>
                                  <th>Book</th>
@@ -46,11 +46,16 @@
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
+                                        </td>
+                                        <td>
+                                                <input type="hidden" id="txt-{{$val->id}}"  value="{{ $val->status }}">
+                                                <button id="btn-{{$val->id}}" class="btn btn-sm {{$val->status==1 ?'btn-success':'btn-danger'}}"  onclick="activeUser({{$val->id}})">{{$val->status==0?'reject' :'accept'}}</button>
+
+
+{{--                                                <button disabled="disabled" class="btn btn-sm {{$val->status==0 ?'btn-danger':'btn-success'}}" style="color: #000">{{$val->status==1?'accept':'reject'}}</button>--}}
 
                                         </td>
                                         <td>{{$val->name}}</td>
-                                        <td><label  class="btn btn-sm {{$val->status== 0 ?'btn-danger':'btn-success'}}"
-                                                for="">{{$val->getStatus()}}</label></td>
                                         <td>{{$val->author}}</td>
                                        <td>{{@$val->year}}</td>
                                        <td>{{@$val->getBook()}}</td>
@@ -62,12 +67,61 @@
 
                                     </tr>
                                 @endforeach
+                                <script src="">
+                                    $.ajaxSetup({
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        }
+                                    });
+                                </script>
 
 
 
                                 </tbody>
+                                <script>
+                                    $(document).ready(function() {
+                                    })
+                                    function activeUser(id) {
+                                        var url='/changeStatus';
 
-@stop
+                                        // alert(url);
+                                        var status =$('#txt-'+id).val();
+                                        var activate=0;
+                                        if(status==0){
+                                            activate=1;
+                                        }if(status==1){
+                                            activate=0;
+
+                                        }
+                                        var UserID = id;
+                                        // alert(activate);
+                                        $.ajax({
+                                            type: "GET",
+                                            dataType: "json",
+                                            url: url,
+                                            data: {status: activate, id: id},
+
+                                            success: function(data){
+                                                // alert(data);
+                                                // alert("Success !");
+                                                location.reload();
+
+                                                if(data.user.status==0)  {
+                                                    $('#btn-'+id).removeClass('btn-danger').addClass( "btn-success" );
+
+                                                }else{
+                                                    $('#btn-'+id).removeClass('btn-success').addClass( "btn-danger" );
+
+                                                }
+
+                                            }
+                                        });
+
+                                    }
+                                </script>
+
+
+                                @stop
  @push('style')
 <link href="{{asset('admin/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
 @endpush
