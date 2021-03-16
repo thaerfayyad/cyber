@@ -8,16 +8,17 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="blog_left_sidebar">
-                        @if(is_null($items))
-                            <h3 style="text-align: center"> No Posts</h3>
-                        @else
+                        @isset($items)
+
+                            <h3 style="text-align: center"> No Items Available</h3>
+
                             @foreach($items as $item)
                         <article class="row blog_item">
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
 
                                     <ul class="blog_meta list">
-{{--                                        <li><a href="#">{{@$item->user->name}}<i class="lnr lnr-user"></i></a></li>--}}
+                                        <li><a href="#"><i class="lnr lnr-user"></i></a></li>
                                         <li><a href="#">{{$item->created_at->format('y/m/d')}}<i class="lnr lnr-calendar-full"></i></a></li>
                                         <li><a href="#">comment of post<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
@@ -36,7 +37,7 @@
                         </article>
                             @endforeach
 
-                        @endif
+                        @endisset
 
 
                         <nav class="blog-pagination justify-content-center d-flex">

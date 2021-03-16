@@ -17,7 +17,7 @@ class bookController extends Controller
      */
     public function index()
     {
-      $items  = Book::all();
+       $items  = Book::all();
         return view('admin.books.home',
         [
             'items' =>$items,
@@ -51,6 +51,7 @@ class bookController extends Controller
             'semester' => 'required',
             'library' => 'required',
             'book' => 'required',
+            'status' =>'required',
             'bookFile'   => 'required|mimes:doc,pdf,docx,zip'
         ]);
         $book = new Book();

@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use App\Models\admin\Blog;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -34,4 +35,10 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function comments(){
+        return $this->hasMany(Comment::class, 'user_id');
+    }
+    public function posts(){
+        return $this->hasMany(Blog::class );
+    }
 }

@@ -38,6 +38,8 @@
                         </div>
                         @isset($books)
 
+                                <h3 style="text-align: center"> No Items Available</h3>
+
                             @foreach($books as $book)
                                 <div class="exam_tab">
                                     <div class="div_examNUM">
@@ -69,7 +71,7 @@
                                     </Div>
 
                                 </div>
-                            @endforeachلا
+                            @endforeach
                         @endisset
 
 

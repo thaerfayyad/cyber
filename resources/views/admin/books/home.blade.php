@@ -20,6 +20,7 @@
                                  <th>Id</th>
                                  <th>Operations</th>
                                  <th>Title</th>
+                                 <th>Status</th>
                                  <th>Author</th>
                                  <th>Year</th>
                                  <th>Book</th>
@@ -48,6 +49,8 @@
 
                                         </td>
                                         <td>{{$val->name}}</td>
+                                        <td><label  class="btn btn-sm {{$val->status== 0 ?'btn-danger':'btn-success'}}"
+                                                for="">{{$val->getStatus()}}</label></td>
                                         <td>{{$val->author}}</td>
                                        <td>{{@$val->year}}</td>
                                        <td>{{@$val->getBook()}}</td>

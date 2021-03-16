@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\admin\Blog;
+use App\Models\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -39,11 +41,11 @@ class User extends Authenticatable
     ];
 
     public function comments(){
-        return $this->hasMany('App\Models\Comment' , 'user_id');
+        return $this->hasMany(Comment::class, 'user_id');
     }
 
     public function posts(){
-        return $this->hasMany('App\Models\admin\Blog'  );
+        return $this->hasMany(Blog::class );
     }
     public function getType()
     {
