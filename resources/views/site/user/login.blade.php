@@ -34,7 +34,7 @@
                 <div class="form_login">
 
                     <div class="input_div">
-                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}" required>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

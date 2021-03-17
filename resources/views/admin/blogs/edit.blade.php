@@ -25,9 +25,7 @@
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="title" name="title" value="{{$item->title}}">
-                                            @error('title')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
+
                                         </div>
                                     </div>
                                 </div>
@@ -38,9 +36,7 @@
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">description</label>
                                         <div class="col-sm-9">
                                             <textarea name="description" id="" cols="40" rows="5" > {{$item->description}}</textarea>
-                                            @error('description')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
+
                                         </div>
                                     </div>
                                 </div>
@@ -50,24 +46,20 @@
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">image</label>
                                         <div class="col-sm-9">
-                                            <input type="file" class="form-control" id="img" name="image" required>
-                                            @error('image')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                            @enderror
+                                            <input type="file" class="form-control" id="img" name="image" ><br>
+                                            <img src="{{url('/uploads/images/blogs/'.$item->image)}}" alt="{{$item->image}}" title=""  width="80"  >
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-lg-6" style="float: right">
-                                    <h3>image</h3>
-                                    <img src="{{asset('public/uploads/images/blogs/'.$item->image)}}" alt="" title="" class="rounded-circle" width="75">
-                                </div>
+
                             </div>
                         </div>
 
                         <hr>
                         <div class="card-body">
                             <div class="form-group m-b-0 text-center">
-                                <button type="submit" class="btn btn-info waves-effect waves-light">save</button>
+                                <button type="submit" class="btn btn-info waves-effect waves-light">update</button>
 
                             </div>
                         </div>

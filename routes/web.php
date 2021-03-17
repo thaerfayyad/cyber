@@ -33,18 +33,19 @@ Auth::routes();
     Route::get('books-library-student', 'site\BookController@student')->name('student.index');
     Route::get('books-library-general', 'site\BookController@general')->name('general.index');
     Route::get('books', 'site\BookController@book')->name('book.home');
+    Route::get('download/{id}', 'site\BookController@download')->name('book.download');
     Route::get('resources-library-general', 'site\BookController@resources')->name('resources.book.home');
     Route::get('exercises-library-general', 'site\BookController@exercises')->name('exercises.book.home');
     Route::get('resources', 'site\ResourcesController@index')->name('resources.home');
     Route::get('blogs' , 'site\BlogsController@index')->name('blogs.home.page');
+    Route::post('blogs-store' , 'site\BlogsController@store')->name('user.blog.Store');
     Route::get('blogs-details/{id}' , 'site\BlogsController@show')->name('blogs.details.page');
     Route::get('comments' , 'site\BlogsController@comments')->name('comments.index');
     Route::delete('destroy/{id}' , 'site\BlogsController@destroy')->name('comments.destroy');
     Route::get('news-details/{id}' , 'site\NewsController@show')->name('news.details.page');
     Route::post('attachments/store' , 'site\AttachmentController@store')->name('attachment.store');
-    Route::post('blog-store' , 'site\AttachmentController@userStore')->name('user.blog.Store');
 
-Route::get('getout','site\UserController@LogOut')->name('getout');
+    Route::get('getout','site\UserController@LogOut')->name('getout');
 
 
 

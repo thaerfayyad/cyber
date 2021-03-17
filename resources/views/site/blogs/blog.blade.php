@@ -23,10 +23,10 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="{{url('/uploads/images/blogs/'.$item->image)}}" alt="{{$item->image}}" title=""  width="500"  >
+                                    <img src="{{url('/uploads/images/blogs/'.$item->image)}}" alt="{{$item->image}}" title=""  width="350"  >
                                     <div class="blog_details">
-                                        <a href="single-blog.html"><h2>{{$item->title}}</h2></a>
-                                        <p> {{$item->description}}.</p>
+                                        <h5 ><h2>{{$item->title}}</h2></h5>
+                                        <p > {{$item->description}} <br>.</p> <br>
                                         <a href="{{route('blogs.details.page' ,$item->id)}}" class="primary_btn"><span>View More</span></a>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                             <div class="comment-form">
                                     @guest
                                 @else
-                                <form action="{{route('user.blog.Store')}}" method="post">
+                                <form action="{{route('user.blog.Store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="widget_title">New Post</h4>
                                     <div class="form-group">
@@ -66,6 +66,7 @@
                                         <label for="formFileLg" class="form-label">Upload a photo</label>
                                         <input type="file"  name="image"  class="form-control  form-control-lg">
                                     </div>
+                                    <input type="hidden" name="user_id"  value="{{ Auth::user()->id }}">
                                     <br>
 
                                     <button class="primary-btn primary_btn"><span>Publish</span></button>

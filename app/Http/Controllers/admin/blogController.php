@@ -99,11 +99,6 @@ class blogController extends Controller
     public function update(Request $request, $id)
     {
     $item =   Blog::findOrFail($id);
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'image' => 'required',
-        ]);
 
         if(  $request->image != Null) {
 

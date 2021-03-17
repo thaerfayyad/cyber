@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Book;
 use Illuminate\Http\Request;
 use DB;
+
 class BookController extends Controller
 {
     /**
@@ -62,6 +63,13 @@ class BookController extends Controller
         $exercises = Book::where('book', 3)->get();
 
         return view('site.books.exercises', compact('exercises'));
+    }
+    public function download($id)
+    {
+
+        $filesss = Book::where('id', $id)->firstOrFail();
+        $pathToFile = public_path().'/uploads/books/'.$filesss->bookFile;
+        return response()->download($pathToFile);
     }
 
 }

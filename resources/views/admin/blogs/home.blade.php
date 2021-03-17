@@ -44,7 +44,7 @@
 
                                         </td>
                                         <td>{{$val->title}}</td>
-                                        <td>{{$val->description}}</td>
+                                        <td style="resize: vertical; overflow:fragments">{{$val->description}}</td>
                                         <td>
                                          <img src="{{url('/uploads/images/blogs/'.$val->image)}}" alt="{{$val->image}}" title=""  width="80"  >
                                         </td>

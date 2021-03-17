@@ -104,7 +104,7 @@
                                             success: function(data){
                                                 // alert(data);
                                                 // alert("Success !");
-                                                location.reload();
+                                               location.reload();
 
                                                 if(data.user.status==0)  {
                                                     $('#btn-'+id).removeClass('btn-danger').addClass( "btn-success" );

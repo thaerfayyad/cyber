@@ -37,10 +37,11 @@
                             <h4 class="Ex_Name">Exercises</h4>
                         </div>
 
-                        @if(!is_null($exercises))
-                                <h3 style="text-align: center"> No Items Available</h3>
-                        @else
+                        @isset($exercises)
+
+
                             @foreach($exercises as $book)
+
                                 <div class="exam_tab">
                                     <div class="div_examNUM">
                                         <i class="fa fa-book exam_icon" aria-hidden="true"></i>
@@ -67,13 +68,15 @@
 
                                     <Div class="icons_exam">
                                         <i class="fa-3x  fa fa-eye  " ></i>
-                                        <i class="fa fa-download download" aria-hidden="true"></i>
+                                        <a href="{{route('book.download',$book->id)}}" class="fa fa-download download" aria-hidden="true"></a>
+
                                     </Div>
 
                                 </div>
+
                             @endforeach
 
-                        @endif
+                        @endisset
 
 
                     </Div>

@@ -44,30 +44,5 @@ class AttachmentController extends Controller
         $book->save();
         return redirect()->back();
     }
-    public function userStore(Request $request)
-    {
-//        dd($request->all());
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpg,png,jpeg',
-        ]);
-        $blog = new Blog();
-//        $blog->user_id  =  Auth::user()->id;
-        $blog->title = $request->title;
-        $blog->description = $request->description;
 
-        if ($request->image != Null) {
-
-            $imgName = $blog->id . '_blog' . time() . '.' . request()->image->getClientOriginalExtension();
-            $request->image->move('uploads/images/blogs', $imgName);
-
-
-            $blog->image = $imgName;
-        }
-        $blog->save();
-
-
-        return redirect()->back();
-    }
 }

@@ -55,7 +55,8 @@ class bookController extends Controller
 
         $book = new Book();
         if(  $request->bookFile != Null){
-            $bookName = $book->id.'_book'.time().'.'.request()->bookFile->getClientOriginalExtension();
+
+            $bookName = $book->id.'book'.time().'.'.request()->bookFile->getClientOriginalExtension();
             $request->bookFile->move('uploads/books',$bookName);
             $book->bookFile = $bookName;
         }
@@ -66,7 +67,6 @@ class bookController extends Controller
         $book->semester = $request->semester ;
         $book->library = $request->library ;
         $book->book = $request->book ;
-        $book->bookFile = $request->bookFile ;
         $book->status = '1' ;
         $book->save();
         return redirect()->back();

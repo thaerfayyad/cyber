@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Book;
 use App\Models\Attachment;
 use App\Models\Post;
 
@@ -28,7 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $items = Post::all();
-        return view('site.index' ,compact('items'));
+        $books = Book::all()->take(5);
+
+        return view('site.index' ,compact('items','books'));
 
     }
     public function about()

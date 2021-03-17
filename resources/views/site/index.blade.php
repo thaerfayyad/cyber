@@ -25,23 +25,7 @@
                     <div class="col-lg-7">
                         <div class="chart_div">
                             <div class="first_chart row">
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="{{asset('site/img/chart4.png')}}" class="chart-img">
-                                </div>
-
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="{{asset('site/img/chart4.png')}}" class="chart-img">
-                                </div>
-
-                                <hr>
-
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="{{asset('site/img/chart4.png')}}" class="chart-img">
-                                </div>
-
-                                <div class="col-sm-12 col-md-6">
-                                    <img src="{{asset('site/img/chart4.png')}}" class="chart-img">
-                                </div>
+                                <h1>CHART</h1>
                             </div>
 
 
@@ -70,21 +54,24 @@
                 </div>
             </div>
 
+    @isset($books)
+        @foreach($books as $book)
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="owl-carousel brand-carousel">
+                                <div class="single-brand-item d-table">
+                                    <div class="d-table-cell">
+                                        <a href="{{route('book.download',$book->id)}}" class="fa fa-download download" aria-hidden="true"></a>
 
+                                    </div>
+                                </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="owl-carousel brand-carousel">
-                        <div class="single-brand-item d-table">
-                            <div class="d-table-cell">
-                                <img src="{{asset('site/img/book_.jpg')}}" alt="">
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
+                @endforeach
+        @endisset
     </section>
     <!--================ End Brand Area =================-->
 
@@ -100,62 +87,34 @@
                             The most important cybersecurity news and updates is displayed on a weekly basis
                         </h2>
                     </div>
-
-                    <div class="review">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-
                 </div>
             </div>
 
-
-
+            @isset($items)
+          @foreach($items as $item)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="owl-carousel brand-carousel">
-
-                        <a href="./New-details.html">
+                        <a href="{{route('blogs.details.page',$item->id)}}">
                             <div class="single-brand-item d-table">
                                 <div class="d-table-cell">
                                     <div class="div-news">
                                         <Div class="title-new">
-                                            <h5>Title New</h5>
+                                            <h5>{{$item->title}}</h5>
                                         </Div>
                                         <div class="new-pr">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                minima distinctio! Iure, et iste. Illum ipsa ea officiis cupiditate?</p>
+                                            <p>{{$item->short_description}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
-
-
-                        <a href="./New-details.html">
-                            <div class="single-brand-item d-table">
-                                <div class="d-table-cell">
-                                    <div class="div-news">
-                                        <Div class="title-new">
-                                            <h5>Title New</h5>
-                                        </Div>
-                                        <div class="new-pr">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                minima distinctio! Iure, et iste. Illum ipsa ea officiis cupiditate?</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </a>
-
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @endisset
     </section>
     <!--================ End Brand Area =================-->
 
