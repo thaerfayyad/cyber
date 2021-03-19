@@ -82,7 +82,7 @@
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
                                         <select id="semester" name="book">
-                                            <option value="volvo">Select The library of book</option>
+                                            <option disabled>Select The library of book</option>
                                             <option value="1" >Book</option>
                                             <option value="2" >Resources</option>
                                             <option value="3" >Exercises</option>
@@ -101,7 +101,7 @@
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
                                         <select id="semester" name="library">
-                                            <option value="volvo">Select The library</option>
+                                            <option disabled>Select The library</option>
                                             <option value="1" >Student</option>
                                             <option value="2" >General</option>
                                         </select>
@@ -119,7 +119,7 @@
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
                                         <select id="semester" name="semester">
-                                            <option value="volvo">Select The Semester</option>
+                                            <option disabled>Select The Semester</option>
                                             <option value="1" >Semester '1'</option>
                                             <option value="2" >Semester '2'</option>
                                         </select>

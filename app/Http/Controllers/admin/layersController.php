@@ -56,7 +56,6 @@ class layersController extends Controller
         $layer->title_threats =$request->title_threats ;
         $layer->layer =$request->layer;
         $layer->descriptions_threats =$request->descriptions_threats ;
-        $layer->img_threats =$request->img_threats ;
         $layer->title_protocol =$request->title_protocol ;
         $layer->descriptions_protocol =$request->descriptions_protocol ;
 
@@ -113,7 +112,6 @@ class layersController extends Controller
         $layer->title_threats =$request->title_threats ;
         $layer->layer =$request->layer;
         $layer->descriptions_threats =$request->descriptions_threats ;
-        $layer->img_threats =$request->img_threats ;
         $layer->title_protocol =$request->title_protocol ;
         $layer->descriptions_protocol =$request->descriptions_protocol ;
 

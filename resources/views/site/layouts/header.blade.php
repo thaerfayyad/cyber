@@ -9,27 +9,27 @@
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
                     <ul class="nav navbar-nav menu_nav justify-content-center">
-                        <li class="nav-item active"><a class="nav-link" href="{{route('index')}}"  style=" text-transform: capitalize">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{route('index')}}"  style=" font-size: 20px;text-transform: capitalize">Home</a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false"  style=" text-transform: capitalize">Discover & learn</a>
+                               aria-expanded="false"  style=" font-size: 20px;text-transform: capitalize">Discover & learn</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{route('resources.home')}}" style=" text-transform: capitalize">Resources</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}"  style=" text-transform: capitalize">Student library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('general.index')}}"  style=" text-transform: capitalize">General library</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('layers.page')}}"  style=" text-transform: capitalize">Network Layer</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('resources.home')}}" style=" font-size: 15px;text-transform: capitalize">Resources</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('student.index')}}"  style="font-size: 15px; text-transform: capitalize">Student library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('general.index')}}"  style="font-size: 15px; text-transform: capitalize">General library</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('layers.page')}}"  style="font-size: 15px; text-transform: capitalize">Network Layer</a></li>
 
                             </ul>
                         </li>
 
-                        <li class="nav-item"><a class="nav-link"  href="{{route('blogs.home.page')}}"  style=" text-transform: capitalize">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="{{route('about')}}"  style=" text-transform: capitalize">About As</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact" style=" text-transform: capitalize">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{{route('blogs.home.page')}}"  style=" font-size: 20px;text-transform: capitalize">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="{{route('about')}}"  style="font-size: 20px; text-transform: capitalize">About As</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('createContact')}}" style="font-size: 20px; text-transform: capitalize">Contact</a></li>
                     </ul>
                     @guest
-                    <a  class="primary_btn "  href="{{route('signup')}}" style="text-transform: capitalize ;width: 100px;height: 50px " >Sign Up</a>
+                    <a  class="primary_btn "  href="{{route('signup')}}" style="font-size: 20px;text-transform: capitalize ;width: 100px;height: 50px " >Sign Up</a>
                     <div class="dropdown user_name_div">
                     @endguest
                         @guest

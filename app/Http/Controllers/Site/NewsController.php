@@ -27,6 +27,7 @@ class NewsController extends Controller
     {
 
 
+
        $item = Post::findOrFail($id);
 
         return view('site.news.news_details', compact('item'));

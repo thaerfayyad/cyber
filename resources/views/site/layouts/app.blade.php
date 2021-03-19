@@ -1,6 +1,6 @@
 
 
-<!DOCTYPE html>
+
 <html>
 <head>
     <!-- Required meta tags -->
@@ -9,6 +9,7 @@
     <link rel="icon" href="{{asset('site/img/logo.ico')}}" type="image/png">
 {{--    @section('title', 'ANTENNA CAMPUS')--}}
     <title>ANTENNA CAMPUS @yield('title')</title>
+
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="{{asset('site/css/bootstrap.css')}}">

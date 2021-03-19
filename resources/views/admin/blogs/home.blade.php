@@ -8,7 +8,7 @@
                     <div class="card-body">
 
                         <h2 class="card-title">All Of The Blogs  <a href="{{route('blogs.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
-                        <div class="table-responsive">
+                        <div class="table-responsive" >
 
                             <table id="file_export" class="table table-striped table-bordered display">
                                 @include('admin.include.alerts.success')
@@ -44,11 +44,11 @@
 
                                         </td>
                                         <td>{{$val->title}}</td>
-                                        <td style="resize: vertical; overflow:fragments">{{$val->description}}</td>
+                                        <td >{{$val->description}}</td>
                                         <td>
                                          <img src="{{url('/uploads/images/blogs/'.$val->image)}}" alt="{{$val->image}}" title=""  width="80"  >
                                         </td>
-                                        <td>{{$val->created_at}}</td>
+                                        <td>{{$val->created_at->format('y/m/d')}}</td>
 
 
                                     </tr>

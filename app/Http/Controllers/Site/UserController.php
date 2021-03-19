@@ -70,10 +70,14 @@ class UserController extends Controller
         $user ->type = $request->input('type');
         $user ->password = bcrypt($request->password);
         $user ->save();
-        return redirect()->route('index');
-
-
+        if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")])) {
+            // notify()->success('تم الدخول بنجاح  ');
+            return redirect()->route('index');
+        }
+        // notify()->error('خطا في البيانات  برجاء المجاولة مجدا ');
+        return redirect()->back()->with(['error' => 'incorrect information ']);
     }
+
     public function LogOut()
     {
         Auth::guard('web')->logout();

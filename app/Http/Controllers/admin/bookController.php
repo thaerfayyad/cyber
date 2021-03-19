@@ -45,7 +45,6 @@ class bookController extends Controller
 //        dd($request->all());
         $request->validate([
             'name' => 'required|max:255',
-            'details' => 'required',
             'year' => 'required',
             'semester' => 'required',
             'library' => 'required',
@@ -56,7 +55,7 @@ class bookController extends Controller
         $book = new Book();
         if(  $request->bookFile != Null){
 
-            $bookName = $book->id.'book'.time().'.'.request()->bookFile->getClientOriginalExtension();
+            $bookName = 'book'.time().'.'.request()->bookFile->getClientOriginalExtension();
             $request->bookFile->move('uploads/books',$bookName);
             $book->bookFile = $bookName;
         }
@@ -107,16 +106,23 @@ class bookController extends Controller
     {
 //        dd($request->all());
 
-        $item = Book::findOrFail($id);
-        if(  $request->bookFile != Null) {
+        $book = Book::findOrFail($id);
+        if(  $request->bookFile != Null){
 
-            $book = $request->file('bookFile');
-            $book_new_name = time() . "-" . $book->getClientOriginalName();
-            $book->storeAs('uploads/books', $book_new_name);
-            $book->bookFile = $book_new_name;
+            $bookName = $book->id.'_book'.time().'.'.request()->bookFile->getClientOriginalExtension();
+            $request->bookFile->move('uploads/books',$bookName);
+            $book->bookFile = $bookName;
         }
+        $book->name = $request->name ;
+        $book->details = $request->details ;
+        $book->author = $request->author ;
+        $book->year = $request->year ;
+        $book->semester = $request->semester ;
+        $book->library = $request->library ;
+        $book->book = $request->book ;
+        $book->status = '1' ;
+        $book->save();
 
-        $item ->update($request->except('_token'));
         return redirect()->route('books.index')
             ->with('success', 'Book updated successfully');
 

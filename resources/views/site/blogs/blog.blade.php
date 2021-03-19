@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <div class="blog_post">
+                                <div class="blog_post" style="word-wrap: break-word;">
                                     <img src="{{url('/uploads/images/blogs/'.$item->image)}}" alt="{{$item->image}}" title=""  width="350"  >
                                     <div class="blog_details">
                                         <h5 ><h2>{{$item->title}}</h2></h5>

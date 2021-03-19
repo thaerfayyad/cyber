@@ -263,11 +263,7 @@
   border-radius: 50px !important;
   outline: none !important;
 }
-.nav-link {
-  font-size: 20px !important;
-  font-weight: 500;
-  font-family: roboto;
-}
+
 .control{
 
     padding: 15px;
@@ -279,4 +275,35 @@
     -moz-border-radius: 15px ;
     -ms-border-radius: 15px ;
     -o-border-radius: 15px ;
+}
+
+.div-scroll-news{
+  height: 400px;
+  overflow: auto;
+}
+.new1{
+  width: 100%;
+  background-color: #cfcfcf;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+.left-div
+{
+  word-break: break-word;
+}
+.left-div h3{
+  color: #8D5BF9 !important;
+}
+.left-div p{
+  word-break: break-word;
+}
+.new1 {
+  padding: 15px;
+}
+.more-intorduction p{
+  font-size: 20px;
+  padding: 5px;
+}
+.more-intorduction h2{
+  color: #8D5BF9 !important;
+  margin-bottom: 5px;
 }

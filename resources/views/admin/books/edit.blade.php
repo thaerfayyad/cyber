@@ -79,8 +79,25 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
+                                        <select id="semester" name="book">
+                                            <option disabled >Select The library of book</option>
+                                            <option value="1" @if($book->book == 1) selected @endif>Book</option>
+                                            <option value="2" @if($book->book == 2) selected @endif>Resources</option>
+                                            <option value="3" @if($book->book == 3) selected @endif>Exercises</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-6">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
+                                    <div class="col-sm-9">
                                         <select id="semester" name="semester">
-                                            <option value="volvo">Select The Semester</option>
+                                            <option disabled>Select The Semester</option>
                                             <option value="1" @if($book->semester == 1) selected @endif>Semester '1'</option>
                                             <option value="2" @if($book->semester == 2) selected @endif>Semester '2'</option>
                                         </select>
@@ -89,8 +106,8 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-3 text-right control-label col-form-label">Select</label>
                                     <div class="col-sm-9">
-                                        <select id="semester" name="semester">
-                                            <option value="volvo">Select The Semester</option>
+                                        <select id="semester" name="library">
+                                            <optiond disabled >Select The Library</optiond>
                                             <option value="1" @if($book->library == 1) selected @endif>General</option>
                                             <option value="2" @if($book->library == 2) selected @endif>Student</option>
                                         </select>

@@ -22,6 +22,7 @@ Auth::routes();
 
     Route::get('/home','Site\homeController@index')->name('index');
     Route::get('about','Site\homeController@about')->name('about');
+    Route::get('create-Contact','Site\homeController@createContact')->name('createContact');
     Route::get('attachment-create','Site\homeController@create')->name('attachment.create');
     Route::post('attachment-store','Site\homeController@store')->name('attachment.store');
     Route::get('layer','Site\LayersController@index')->name('layers.page');
@@ -34,6 +35,7 @@ Auth::routes();
     Route::get('books-library-general', 'site\BookController@general')->name('general.index');
     Route::get('books', 'site\BookController@book')->name('book.home');
     Route::get('download/{id}', 'site\BookController@download')->name('book.download');
+    Route::get('show/{id}', 'site\BookController@download')->name('book.show');
     Route::get('resources-library-general', 'site\BookController@resources')->name('resources.book.home');
     Route::get('exercises-library-general', 'site\BookController@exercises')->name('exercises.book.home');
     Route::get('resources', 'site\ResourcesController@index')->name('resources.home');

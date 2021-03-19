@@ -2726,7 +2726,7 @@ h6 {
       color: #ffc000;
       font-size: 20px;
     }
-  
+
 .single_testimonial .testimonial_content {
   margin-top: 30px; }
   .single_testimonial .testimonial_content p {
@@ -3581,7 +3581,7 @@ width: 30px;
   background-color: rgb(223, 217, 217);
   font-weight: bold;
   color: rgb(158, 28, 158);
-  
+
 }
 .attachment_div{
   display: flex;
@@ -3681,7 +3681,7 @@ width: 30px;
   text-align: center;
   margin-top: 5%;
   margin-bottom: 5%;
-  
+
 }
 .btn_msg{
   width: 50%;
@@ -3791,7 +3791,7 @@ input[type=submit]:hover {
   display: flex;
   justify-content: center;
   justify-content: space-around;
-  margin-top: ;
+
 }
 .graduation , .users{
   font-size: 20px;
@@ -3806,7 +3806,7 @@ input[type=submit]:hover {
   background: #000;
   padding: 20px;
   text-align: center;
- 
+
 }
 .footer_last P{
   font-size: 20px;

@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+    <script src="https://cdnjs.com/libraries/Chart.js"></script>
     <!--================Home Banner Area =================-->
     <section class="home_banner_area">
         <div class="banner_inner">
@@ -22,100 +22,144 @@
                             </div>
                         </div>
                     </div>
+
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+                    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+
                     <div class="col-lg-7">
                         <div class="chart_div">
                             <div class="first_chart row">
-                                <h1>CHART</h1>
+                                <div class="col-lg-8">
+
+                                </div>
                             </div>
-
-
-
-                        </div>
+                           </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
-    <h1>chart</h1>
-    <canvas id="canvas" height="280" width="600"></canvas>
+    <script src="https://cdnjs.com/libraries/Chart.js"></script>
+    <script src="https://www.jsdelivr.com/package/npm/chart.js?path=dist"></script>
+    <div class="card" style="text-align: center; color: #00FF00;border: 2px solid;margin-top: 10px">
+        <div class="card-body">
+            <h2 class="card-title">chart</h2>
+            <div class="row">
+                <div class="col-1">
+                </div>
+                    <div class="col-10"> <p class="card-text">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 style="color: {{$lab['yaxis'][1]}};float: left">{{$lab['yaxis'][0]}}</h3>
+                            </div>
+
+
+                        </div>
+                            <p>
+
+
+                            {!! $ChatBlade !!}
+
+                        </p></div>
+                <div class="col-12">
+                    <h3 style="color: {{$lab['xaxis'][1]}};text-align: center;">{{$lab['xaxis'][0]}}  </h3>
+                </div>
+                <div class="col-1">
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
     <!--================End Home Banner Area =================-->
 
+    <!--================ Srart news Area ===============-->
+
+    <section class="section-news mt-5 mb-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mb-5 text-center">
+                <div class="main_title">
+                    <p class="top_title">latest news</p>
+                    <h2 style="color: #8D5BF9;">You can browse and learn the latest
+                        news in the field of cyber information security</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="div-scroll-news">
+                            @foreach($items as$item)
+                            <div class="new1 row" style="word-wrap: break-word;">
+                                <div class="col-md-10 left-div">
+                                    <a href="{{route('news.details.page',$item->id)}}"> <h3>{{$item->title}}</h3></a>
+                                    <p>{{$item->description}}</p>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_content  more-intorduction text-center">
+                            <h2>
+                                ANTENNA CAMPUS <br>
+                                Cybersecurity science
+                            </h2>
+                            <p mt-5>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore
+                                magna aliqua. Ut enim ad minim.
+                                sed do eiusmod tempor incididunt.
+                            </p>
+
+                            <div class="mt-5 align-items-center">
+                                <a class="primary_btn" href="#"><span>Read more</span></a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!--================ End news Area =================-->
 
 
     <!--================ Srart Brand Area ===============-->
-    <section class="brand_area section_gap" id="Suggestion">
+    <section class="brand_area section_gap mt-10" id="Suggestion">
         <div class="container">
+
             <div class="row justify-content-center">
                 <div class="col-lg-8 mb-5 text-center">
                     <div class="main_title">
                         <p class="top_title">Suggested Attachments</p>
                         <h2 style="color: #8D5BF9;">The best books available on the site have been suggested to you</h2>
                     </div>
-                </div>
-            </div>
 
-    @isset($books)
-        @foreach($books as $book)
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="owl-carousel brand-carousel">
-                                <div class="single-brand-item d-table">
-                                    <div class="d-table-cell">
-                                        <a href="{{route('book.download',$book->id)}}" class="fa fa-download download" aria-hidden="true"></a>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-        @endisset
-    </section>
-    <!--================ End Brand Area =================-->
-
-    <!--================ Srart Brand Area ===============-->
-    <section class="brand_area section_gap" id="Suggestion">
-        <div class="container">
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8 mb-5 text-center">
-                    <div class="main_title">
-                        <p class="top_title">Weekly news</p>
-                        <h2 style="color: #8D5BF9;">
-                            The most important cybersecurity news and updates is displayed on a weekly basis
-                        </h2>
-                    </div>
-                </div>
-            </div>
-
-            @isset($items)
-          @foreach($items as $item)
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="owl-carousel brand-carousel">
-                        <a href="{{route('blogs.details.page',$item->id)}}">
-                            <div class="single-brand-item d-table">
-                                <div class="d-table-cell">
-                                    <div class="div-news">
-                                        <Div class="title-new">
-                                            <h5>{{$item->title}}</h5>
-                                        </Div>
-                                        <div class="new-pr">
-                                            <p>{{$item->short_description}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
-        @endforeach
-        @endisset
-    </section>
+
+
     <!--================ End Brand Area =================-->
 
 
@@ -179,5 +223,19 @@
         </div>
     </section>
     <!--================End Footer Area =================-->
+    <footer>
+        <div class="footer_last">
+            <p>Copyright  <i class="fa fa-copyright" aria-hidden="true"></i>  {{date('Y')}} </p>
+        </div>
+    </footer>
+
+
+
+{{--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--}}
+{{--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>--}}
+{{--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>--}}
+{{--    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>--}}
+
+
 @stop
 

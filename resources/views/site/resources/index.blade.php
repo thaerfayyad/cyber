@@ -20,7 +20,7 @@
                 </div>
                 <div class="info_exam">
                     <div class="title_info">
-                        <p class="title_exam">Resourse Title :</p> <p class="name_exams">{{$item->title}}</p>
+                        <p class="title_exam">Resource Title :</p>  <a href="https://{{$item->link}}"  target="_blank"><p class="name_exams">{{$item->title}}</p></a>
                     </div>
 
                     <div class="between">
