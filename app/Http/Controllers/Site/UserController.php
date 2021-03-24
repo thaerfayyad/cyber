@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Mail\userMailVerification;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use auth;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -35,16 +37,13 @@ class UserController extends Controller
     }
     protected function userLogin(Request $request)
     {
-//        make validations
-//        dd($request->all());
-        // return $request;
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:6',
         ]);
+
         $remember_me = $request->has('remember_me') ? true : false;
         if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
-            // notify()->success('تم الدخول بنجاح  ');
             return redirect()->route('index');
         }
         // notify()->error('خطا في البيانات  برجاء المجاولة مجدا ');
@@ -70,12 +69,38 @@ class UserController extends Controller
         $user ->type = $request->input('type');
         $user ->password = bcrypt($request->password);
         $user ->save();
-        if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")])) {
+        $remember_me = $request->has('remember_me') ? true : false;
+
+
+        if (auth()->guard('web')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
             // notify()->success('تم الدخول بنجاح  ');
             return redirect()->route('index');
         }
         // notify()->error('خطا في البيانات  برجاء المجاولة مجدا ');
         return redirect()->back()->with(['error' => 'incorrect information ']);
+
+    }
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('site.user.profile',compact('user'));
+    }
+
+    public function update(Request $request ,$id)
+    {
+        $user = User::findOrFail($id);
+
+        if(  $request->password != Null) {
+            $user->password = Hash::make($request->password);
+        }
+
+
+        $user->name =$request->name;
+        $user->save();
+
+        $mail = Mail::to($user)->send(new userMailVerification());
+        return redirect()->route('index')
+            ->with('success', 'User updated successfully');
     }
 
     public function LogOut()

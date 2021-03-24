@@ -26,6 +26,7 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Name</th>
                                             <th scope="col">X</th>
                                             <th scope="col">Y</th>
                                             <th scope="col">Action</th>
@@ -35,6 +36,7 @@
                                             @foreach ($charts as $index=>$chart)
                                                 <tr class="delete_{{ $chart->id }}">
                                                     <th scope="row">{{ $index+1 }}</th>
+                                                    <td>{{ $chart->name }}</td>
                                                     <td>{{ $chart->x }}</td>
                                                     <td>{{ $chart->y }}</td>
                                                     <td>
@@ -47,6 +49,10 @@
                                 </div>
                                 <div class="col-4" >
                                     <div style="padding: 2% 2% 2% 2%">
+                                        <div class="form-group">
+                                            <label for="x-axis"> Name Axis</label>
+                                            <input type="text" class="form-control" id="name"  placeholder="enter-x-axis">
+                                        </div>
                                         <div class="form-group">
                                           <label for="x-axis"> X Axis</label>
                                           <input type="text" class="form-control" id="x-axis"  placeholder="enter-x-axis">
@@ -89,6 +95,7 @@
 
     //ajax for insert data
     $("#myInsert").click( function(){
+        var name = $("#name").val();
         var x = $("#x-axis").val();
         var y = $("#y-axis").val();
 
@@ -102,6 +109,9 @@
         if(y == '' && x == '' ){
             swal("Warning!", "Please insert value of y and x", "warning");
         }
+        if(y == '' && name == '' ){
+            swal("Warning!", "Please insert value of y and name", "warning");
+        }
 
         if( x != '' && y != ''){
 
@@ -112,12 +122,14 @@
                     "_token": "{{ csrf_token() }}",
                     x:x,
                     y:y,
+                    name:name,
                 },
                 success:function(response){
                     swal("success!", "success", "success");
                     var tr =
                                 `  <tr>
                                         <th scope="row">${response.index}</th>
+                                        <td>${response.success.name}</td>
                                         <td>${response.success.x}</td>
                                         <td>${response.success.y}</td>
                                         <td>

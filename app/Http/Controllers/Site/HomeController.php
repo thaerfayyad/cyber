@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         $max_x = DB::table('charts')->max('x');
         $max_y = DB::table('charts')->max('y');
-
+        $name =  DB::table('charts')->max('name');
 
         $lables = Chart::select('created_at')->get();
 //        dd($lables);
@@ -42,7 +42,7 @@ class HomeController extends Controller
         $datasss['yaxis'] = '[';
         $labels = '[';
         foreach ($chart as $index=>$item){
-           $aa = "'".$item->created_at->format('M d H:m:s')."'";
+           $aa = "'".$item->name."'";   //created_at->format('M d H:m:s')
             $datasss['xaxis'] .="$item->x,";
             $datasss['yaxis'] .="$item->y,";
             $labels .="$aa,";
@@ -53,25 +53,6 @@ class HomeController extends Controller
         $datasss['xaxis'] .= ']';
         $datasss['yaxis'] .= ']';
         $labels .= ']';
-
-//        return  $labels;
-
-    /////////////////////////////
-//        $row_data = '[';
-
-//        for($i = 1 ; $i < $column_num ; $i++){
-//            for($j = 2 ; $j < $row_num; $j++){
-//                // dd ($array[$j][$i]);
-//                if($row_data == '[' ){
-//                    // return  $array[$j][$i];
-//                    $row_data =  $row_data .$array[$j][$i];
-//                }else{
-//                    $row_data =   $row_data.",".$array[$j][$i];
-//                }
-//            }
-//            $rows[$i] = $row_data.']';
-//            $row_data = '[';
-//        }
 
 
         $chartFormate = ChartFormat::find(1);
@@ -145,7 +126,7 @@ class HomeController extends Controller
 //			}]
 //		}";
 //return $data;
-        $items = Post::all();
+        $items = Post::all()->take(5);
         $books = Book::all()->take(5);
 
         return view('site.index' ,compact('items','books' ,'ChatBlade','lab'));

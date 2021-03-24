@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-Auth::routes();
+Auth::routes(['verify' => true]);
+//Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('/home','Site\homeController@index')->name('index');
+    Route::get('/home','Site\homeController@index')->name('index');//->middleware('verified');
     Route::get('about','Site\homeController@about')->name('about');
     Route::get('create-Contact','Site\homeController@createContact')->name('createContact');
     Route::get('attachment-create','Site\homeController@create')->name('attachment.create');
@@ -30,7 +30,7 @@ Auth::routes();
     Route::get('Sign','Site\UserController@create')->name('signup');
     Route::post('store','Site\UserController@store')->name('users.save');
     Route::get('Log-in','Site\UserController@getLogIn')->name('users.login');
-    Route::post('user-sign-in','Site\UserController@userLogin')->name('users.sign');
+    Route::post('user-sign-in','Site\UserController@userLogin')->name('users.signIn');
     Route::get('books-library-student', 'site\BookController@student')->name('student.index');
     Route::get('books-library-general', 'site\BookController@general')->name('general.index');
     Route::get('books', 'site\BookController@book')->name('book.home');
@@ -46,6 +46,8 @@ Auth::routes();
     Route::delete('destroy/{id}' , 'site\BlogsController@destroy')->name('comments.destroy');
     Route::get('news-details/{id}' , 'site\NewsController@show')->name('news.details.page');
     Route::post('attachments/store' , 'site\AttachmentController@store')->name('attachment.store');
+    Route::get('profile/{id}','site\UserController@edit')->name('profile.edit');
+    Route::put('profile/update/{id}','site\UserController@update')->name('profile.update');
 
     Route::get('getout','site\UserController@LogOut')->name('getout');
 

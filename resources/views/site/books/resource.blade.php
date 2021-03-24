@@ -66,7 +66,6 @@
                                     </div>
 
                                     <Div class="icons_exam">
-                                        <i class="fa-3x  fa fa-eye  " ></i>
                                         <a href="{{route('book.download',$book->id)}}" class="fa fa-download download" aria-hidden="true"></a>
 
                                     </Div>

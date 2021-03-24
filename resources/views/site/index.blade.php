@@ -1,20 +1,22 @@
 @extends('site.layouts.app')
+@section('title', 'Home')
 
 @section('content')
+
 
     <script src="https://cdnjs.com/libraries/Chart.js"></script>
     <!--================Home Banner Area =================-->
     <section class="home_banner_area">
         <div class="banner_inner">
             <div class="container">
-                <div class="row">
+                <div class="row" style="padding: 100px;">
                     <div class="col-lg-5">
                         <div class="banner_content">
-                            <h2 style=" text-transform: capitalize">
+                            <h4 style=" text-transform: capitalize">
                                 Antenna Campus <br>
                                 Cybersecurity science
-                            </h2>
-                            <p> attacks. In order to be able to be
+                            </h4>
+                            <p> Looking for the latest cyber security threats trends
                             </p>
                             <div class="d-flex align-items-center">
                                 <a class="primary_btn" href="{{route('about')}}"><span>Read more</span></a>
@@ -25,7 +27,7 @@
 
                     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
                     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 
@@ -83,9 +85,64 @@
 
 
 
-
     <!--================End Home Banner Area =================-->
 
+
+    <!--================Start  Suggested Banner Area =================-->
+
+    <section class="section-news mt-5 mb-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mb-5 text-center">
+                <div class="main_title">
+                    <h2 class="top_title"> Suggested books</h2><br>
+                    <h4 style="color: #8D5BF9;">You can share us your favorite books, exercises and resources by add attachments after sign up</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="div-scroll-news">
+                        @isset($books)
+                        @foreach( $books as $item)
+                            <div class="new1 row" style="word-wrap: break-word;">
+                                <div class="col-md-10 left-div">
+                                   <h3>{{$item->name}}</h3>
+                                    <p>{{$item->details}}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                        @endisset
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="banner_content  more-intorduction text-center">
+                        <h2>
+                            ANTENNA CAMPUS <br>
+                            Cybersecurity science
+                        </h2>
+                        <p mt-5>
+                            You can share us your own suggested  and Books by add attachment
+                        </p>
+
+                        <div class="mt-5 align-items-center">
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!--================End Suggested Banner Area =================-->
     <!--================ Srart news Area ===============-->
 
     <section class="section-news mt-5 mb-5">
@@ -93,9 +150,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 mb-5 text-center">
                 <div class="main_title">
-                    <p class="top_title">latest news</p>
-                    <h2 style="color: #8D5BF9;">You can browse and learn the latest
-                        news in the field of cyber information security</h2>
+                    <h2 class="top_title">latest news</h2> <br>
+                    <h4 style="color: #8D5BF9;"> Browse the lates news and tools of cyber security</h4>
                 </div>
             </div>
         </div>
@@ -105,6 +161,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="div-scroll-news">
+                            @isset($items)
                             @foreach($items as$item)
                             <div class="new1 row" style="word-wrap: break-word;">
                                 <div class="col-md-10 left-div">
@@ -113,6 +170,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endisset
 
                         </div>
                     </div>
@@ -123,14 +181,11 @@
                                 Cybersecurity science
                             </h2>
                             <p mt-5>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua. Ut enim ad minim.
-                                sed do eiusmod tempor incididunt.
+                                You can share us your own tools and news by contact us over contact page
                             </p>
 
                             <div class="mt-5 align-items-center">
-                                <a class="primary_btn" href="#"><span>Read more</span></a>
+
 
                             </div>
 
@@ -145,19 +200,7 @@
 
 
     <!--================ Srart Brand Area ===============-->
-    <section class="brand_area section_gap mt-10" id="Suggestion">
-        <div class="container">
 
-            <div class="row justify-content-center">
-                <div class="col-lg-8 mb-5 text-center">
-                    <div class="main_title">
-                        <p class="top_title">Suggested Attachments</p>
-                        <h2 style="color: #8D5BF9;">The best books available on the site have been suggested to you</h2>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
 
     <!--================ End Brand Area =================-->

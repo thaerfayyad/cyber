@@ -39,14 +39,14 @@
                     </div>
 
                     <div class="input_div">
-                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}"  >
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="input_div">
-                        <input type="password" class="input_form @error('password') is-invalid @enderror" placeholder="Password"  name="password"  autocomplete="new-password">
+                        <input type="password" class="input_form @error('password') is-invalid @enderror" placeholder="Password"  name="password" >
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                                <strong>{{ $message }}</strong>
@@ -55,14 +55,14 @@
                     </div>
 
                     <div class="input_div">
-                        <input type="password" class="input_form" placeholder="Confirm Password" name="password_confirmation"  autocomplete="new-password">
-                        @error('Confirm_Password"')
+                        <input type="password" class="input_form" placeholder="Confirm Password" name="password_confirmation"  >
+                        @error('password_confirmation')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="input_div">
                         <select  class="input_form"  name="type" id="">
-                            <option disabled value="">select user's type</option>
+                            <option  value="">select user's type</option>
                             <option value="1">General</option>
                             <option value="2">Student</option>
                         </select>
@@ -71,7 +71,7 @@
                         @enderror
                     </div>
                     <div class="btn_login" style="margin: 5% !important;">
-                    <a href="./newpassword.html"><button class="login_now">continue</button></a>
+                        <button class="login_now">continue</button>
                 </div>
 
                 <div class="have_account">

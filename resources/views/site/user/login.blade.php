@@ -29,12 +29,12 @@
             <br>
             <h3 class="text-primary text-center">Sign In</h3>
             <br><br>
-            <form method="POST" action="{{route('users.sign')}}">
+            <form method="POST" action="{{route('users.signIn')}}">
                 @csrf
                 <div class="form_login">
 
                     <div class="input_div">
-                        <input type="email" class="input_form" placeholder=" Email" name="email" value="{{ old('email') }}" required>
+                        <input type="email" class="input_form" placeholder=" Email" name="email" required value="{{ old('email') }}">
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
@@ -42,7 +42,7 @@
 
                     <div class="input_div">
                         <input type="password" class="input_form" placeholder="Password" name="password">
-                        @error('userName')
+                        @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -53,7 +53,7 @@
                     <br>
 
                     <div class="btn_login" style="margin: 5% !important;">
-                        <a href="#"><button class="login_now">continue</button></a>
+                       <button class="login_now">continue</button>
                     </div>
 
 

@@ -44,7 +44,7 @@ class resourceController extends Controller
             'title' => 'required',
             'link'  => 'required',
             'filed' => 'required',
-            'icon'  => 'required',
+
             ]);
         $resources = new Resource();
         $resources->title =$request ->title;

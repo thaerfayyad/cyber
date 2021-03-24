@@ -30,35 +30,29 @@
                     </ul>
                     @guest
                     <a  class="primary_btn "  href="{{route('signup')}}" style="font-size: 20px;text-transform: capitalize ;width: 100px;height: 50px " >Sign Up</a>
-                    <div class="dropdown user_name_div">
-                    @endguest
-                        @guest
-                          @else
-                            <div class="dropdown user_name_div">
-                                <a class="btn  btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="Profile.html">Account</a>
-                                    <a class="dropdown-item" href="{{route('getout')}}">Logout </a>
-                                </div>
-                            </div>
-
-                        @endguest
-
-
-
-                    </div>
-                    @guest
-                    @else
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="{{route('attachment.create')}}" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
-                    </ul>
-                    @endguest
                 </div>
+                @else
+
+                <div class="dropdown user_name_div">
+                    <a class="btn  btn-outline-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{{route('profile.edit',Auth::id())}}">Account</a>
+                        <a class="dropdown-item" href="{{route('getout')}}">Logout </a>
+                    </div>
+                </div>
+                @endguest
+                @guest
+                @else
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a href="{{route('attachment.create')}}" class="primary_btn " style=" text-transform: capitalize" > Add attachment</a></li>
+                </ul>
+                @endguest
             </div>
+
         </nav>
     </div>
 </header>

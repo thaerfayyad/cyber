@@ -73,20 +73,6 @@
 
                                                 </p>
                                             </div>
-                                            <div class="col-sm-12 col-md-4">
-                                                <h4 class="title_first">LOREM IPSUM DOLOR</h4>
-                                                <p class="description">
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud.
-
-                                                </p>
-                                            </div>
-                                            <div class="col-sm-12 col-md-4">
-                                                <h4 class="title_first">LOREM IPSUM DOLOR</h4>
-                                                <p class="description">
-                                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud.
-
-                                                </p>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -159,13 +145,16 @@
 
                 </div>
                 `;
+
                 $('#threats').empty();
                 $('#threats').append(threats);
+
 
 
             }
         });
         });
+
     </script>
 
 @stop

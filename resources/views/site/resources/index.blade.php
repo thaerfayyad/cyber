@@ -38,7 +38,12 @@
                 <Div class="icons_exam">
                     <i class="" aria-hidden="true">
                         <a href="https://{{$item->link}}"  target="_blank">
+                            @if(!is_null( $item->icon) )
                             <img src="{{asset('/uploads/images/icons/'.$item->icon)}}" alt="" title=""   class="" width="75" height="auto">
+                            @else
+                                <img src="{{asset('site/img/images.png')}}"  class="" width="75" height="auto">
+
+                            @endif
                         </a>
                     </i>
                 </Div>
