@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Blog;
+use App\Models\admin\Book;
 use App\models\admin\Category;
 use App\models\admin\Product;
 use App\models\admin\Vendors;
+use App\Models\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
@@ -17,7 +21,11 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard.index');
+        $users = User::count();
+        $blog  = Blog::count();
+        $book  = Book::count();
+        $news  = Post::count();
+        return view('admin.dashboard.index',compact('users','blog','book','news'));
 
     }
 

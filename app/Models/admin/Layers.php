@@ -11,6 +11,16 @@ class Layers extends Model
     protected $table = 'layers';
     protected $guarded =[];
     protected $hidden = ['created_at','	updated_at','deleted_at'];
+
+    public function threats()
+    {
+        return $this->hasMany(Threat::class, 'layer_id');
+    }
+    public function protocols()
+    {
+        return $this->hasMany(Protocol::class, 'layer_id');
+    }
+
     public function getLayer(){
         if ($this -> layer == 1 )
             return 'Application Layer' ;
