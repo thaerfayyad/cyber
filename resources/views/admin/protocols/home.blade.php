@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">title <a href="{{route('layers.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
+                        <h2 class="card-title">title <a href="{{route('protocols.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
                         <div class="table-responsive">
 
                             <table id="file_export" class="table table-striped table-bordered display">
@@ -20,6 +20,11 @@
                                  <th>Id</th>
                                  <th>Operations</th>
                                  <th>Layer</th>
+                                 <th>Title of threats</th>
+                                 <th>Descriptions of threats</th>
+                                 <th>Image Of Threats</th>
+                                 <th>Title Of Protocol </th>
+                                 <th>Descriptions of Protocol</th>
                                  <th>date</th>
 
                                 </tr>
@@ -42,6 +47,11 @@
 
                                         </td>
                                         <td>{{$val->getLayer()}}</td>
+                                        <td>{{$val->title_threats}}</td>
+                                       <td>{{@$val->descriptions_threats}}</td>
+                                        <td>  <img src="{{url('/uploads/images/layers'.'/'.$val->img_threats)}}" alt="" title="" width="85"></td>
+                                       <td>{{@$val->title_protocol}}</td>
+                                       <td>{{@$val->descriptions_protocol}}</td>
                                         <td>{{$val->created_at}}</td>
 
 

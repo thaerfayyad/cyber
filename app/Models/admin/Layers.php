@@ -22,17 +22,17 @@ class Layers extends Model
     }
 
     public function getLayer(){
-        if ($this -> layer == 1 )
+        if ($this -> name == 1 )
             return 'Application Layer' ;
-        elseif ($this -> layer == 2)
+        elseif ($this -> name == 2)
             return  'Presentation Layer';
-        elseif ($this -> layer == 3)
+        elseif ($this -> name == 3)
             return  'Session Layer';
-        elseif ($this -> layer == 4)
+        elseif ($this -> name == 4)
             return  'Transport Layer';
-        elseif ($this -> layer == 5)
+        elseif ($this -> name == 5)
             return  'Network Layer';
-        elseif ($this -> layer == 6)
+        elseif ($this -> name == 6)
             return  'Data Link Layer';
         else
             return 'Physical Layer' ;

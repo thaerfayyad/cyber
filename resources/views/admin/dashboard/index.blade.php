@@ -112,11 +112,11 @@
         </div>
         <div class="row">
             <!-- column -->
-            <div class="col-lg-6">
+            <div  style="padding-left: 1px;">
             <!-- column -->
-            <div class="col-lg-6">
-                <div class="card">
-                    <img src="{{ asset('admin/assets/images/image.png') }}" alt="user" style="width: 1300px; height:auto;">
+            <div >
+                <div >
+                    <img src="{{ asset('admin/assets/images/image.png') }}" alt="user" style="width: 1400px; height:auto;">
                 </div>
             </div>
         </div>

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
         Route::resource('books','admin\bookController');
         Route::resource('exams','admin\examController');
         Route::resource('layers','admin\layersController');
+        Route::resource('threats','admin\threatController');
+        Route::resource('protocols','admin\protocolController');
         Route::resource('resources','admin\resourceController');
         Route::resource('news','admin\postController');
         Route::resource('blogs','admin\blogController');

@@ -1,5 +1,5 @@
 
-<aside class="left-sidebar">
+<aside class="left-sidebar" >
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
@@ -140,6 +140,7 @@
                                 <span class="hide-menu"> create</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item">
                             <a href="{{route('layers.index')}}" class="sidebar-link">
                                 <i class="icon-Record"></i>
@@ -148,6 +149,47 @@
                         </li>
 
 
+
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="icon-Car-Wheel"></i>
+                        <span class="hide-menu">threats</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item">
+                            <a href="{{route('threats.create')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu">create</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{route('threats.index')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu">index</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="icon-Car-Wheel"></i>
+                        <span class="hide-menu">protocol</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item">
+                            <a href="{{route('protocols.create')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu">create</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{route('protocols.index')}}" class="sidebar-link">
+                                <i class="icon-Record"></i>
+                                <span class="hide-menu">index</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="sidebar-item">

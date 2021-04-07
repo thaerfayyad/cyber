@@ -5,11 +5,13 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Book;
 use App\Models\admin\Layers;
+use App\Models\admin\Protocol;
+use App\Models\admin\Threat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
-class layersController extends Controller
+class protocolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +20,8 @@ class layersController extends Controller
      */
     public function index()
     {
-      $items  = Layers::all();
-        return view('admin.layers.home',
-        [
-            'items' =>$items,
-        ]);
+        $items = Protocol::all();
+        return view('admin.protocols.home',compact('items'));
     }
 
     /**
@@ -33,7 +32,7 @@ class layersController extends Controller
     public function create()
     {
 
-        return view('admin.layers.create');
+        return view('admin.protocols.create');
     }
 
     /**
@@ -45,11 +44,20 @@ class layersController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
+//
+        $request->validate([
+            'layer_id'                 => 'required',
+            'title_protocol'        => 'required',
+            'descriptions_protocol' => 'required|',
+         ]);
 
-        $layer = new Layers();
-        $layer->name =$request->layer ;
 
-        $layer->save();
+        $protocol = new Protocol();
+        $protocol->title_protocol        =    $request->title_protocol ;
+        $protocol->layer_id    =            $request->layer_id;
+        $protocol->descriptions_protocol =$request->descriptions_protocol ;
+
+        $protocol->save();
 
         return redirect()->back();
     }

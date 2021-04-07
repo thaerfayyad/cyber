@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add The Layers</h4>
+                        <h4 class="text-success text-lg-center">Add The Protocol</h4>
 
                     </div>
 
@@ -16,7 +16,7 @@
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('layers.store')}}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('protocols.store')}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">
@@ -41,13 +41,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <h4 class="card-title text-center text-primary">add the  protocol</h4>
+                            <hr>
+                            <br>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Name</label>
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="title_threatse" name="name" placeholder="title of Layer"  >
-                                            @error('name')
+                                            <input type="text" name="title_protocol" class="form-control" placeholder="title of protocol" >
+                                            @error('title_protocol')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Details</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="descriptions_protocol" id="" cols="50" rows="5" placeholder="descriptions the protocol"></textarea>
+                                            @error('descriptions_protocol')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>

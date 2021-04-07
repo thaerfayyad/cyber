@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">title <a href="{{route('layers.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
+                        <h2 class="card-title">title <a href="{{route('threats.create')}}" class="btn btn-info waves-effect waves-light">create <i class="fas fa-plus-square"></i></a></h2>
                         <div class="table-responsive">
 
                             <table id="file_export" class="table table-striped table-bordered display">
@@ -20,6 +20,9 @@
                                  <th>Id</th>
                                  <th>Operations</th>
                                  <th>Layer</th>
+                                 <th>Title of threats</th>
+                                 <th>Descriptions of threats</th>
+                                 <th>Image Of Threats</th>
                                  <th>date</th>
 
                                 </tr>
@@ -31,7 +34,7 @@
 
                                         <td>{{$key+1}}</td>
                                         <td>
-                                            <a href="{{'/admin/layers/'.$val->id.'/edit'}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
+                                            <a href="{{'/admin/threats/'.$val->id.'/edit'}}" class="btn btn-info waves-effect waves-light"><i class="fas fa-edit"></i></a>
                                             <form action="{{ route('layers.destroy',$val->id) }}" method="post" class="form-check-inline" >
                                                 @csrf
                                                 {{ method_field('DELETE') }}
@@ -41,7 +44,10 @@
                                             </form>
 
                                         </td>
-                                        <td>{{$val->getLayer()}}</td>
+                                        <td>{{@$val->getLayer()}}</td>
+                                        <td>{{$val->title_threats}}</td>
+                                       <td>{{@$val->descriptions_threats}}</td>
+                                        <td>  <img src="{{url('/uploads/images/layers'.'/'.$val->img_threats)}}" alt="" title="" width="85"></td>d>
                                         <td>{{$val->created_at}}</td>
 
 

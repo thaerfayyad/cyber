@@ -7,7 +7,7 @@
             <div class="col-10">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="text-success text-lg-center">Add The Layers</h4>
+                        <h4 class="text-success text-lg-center">Add The Threat</h4>
 
                     </div>
 
@@ -16,44 +16,76 @@
                     @include('admin.include.alerts.success')
                     @include('admin.include.alerts.errors')
 
-                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('layers.store')}}">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" action="{{route('threats.store')}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 col-lg-6">
                                     <div class="form-group row">
                                         <label for="name" class="col-sm-3 text-right control-label col-form-label">Select:</label>
+
                                         <div class="col-sm-8">
                                             <select  name="layer_id">
                                                 <option >Select The Layer</option>
-                                                <option value="1">Application Layer</option>
-                                                <option value="2">Presentation Layer</option>
-                                                <option value="3">Session Layer</option>
-                                                <option value="4">Transport Layer</option>
-                                                <option value="5">Network Layer</option>
-                                                <option value="6">Data Link Layer</option>
-                                                <option value="7">Physical Layer</option>
+                                                @foreach($layers as $layer)
+                                                <option value="{{$layer->name}}">{{$layer->getLayer()}}</option>
+                                                @endforeach
                                             </select>
+
                                         </div>
+
                                         @error('layer')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
+
                                 </div>
                             </div>
+                            <h4 class="card-title text-center text-primary">add the threats threats</h4>
+                            <hr>
+                            <br>
                             <div class="row">
                                 <div class="col-sm-12 col-lg-6">
                                     <div class="form-group row">
-                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">Name</label>
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">title</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="title_threatse" name="name" placeholder="title of Layer"  >
-                                            @error('name')
+                                            <input type="text" class="form-control" id="title_threatse" name="title_threats" placeholder="title of threats"  >
+                                            @error('title_threats')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-3 text-right control-label col-form-label">threat</label>
+                                        <div class="col-sm-9">
+                                            <textarea name="descriptions_threats" id="" cols="50" rows="5" placeholder="descriptions the threats"></textarea>
+                                            @error('descriptions_threats')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-lg-6">
+                                    <div class="form-group row">
+                                        <label for="name" class="col-sm-4 text-right control-label col-form-label">image of threat</label>
+                                        <div class="col-sm-8">
+                                            <input type="file" name="img_threats" placeholder="image of threats">
+                                            @error('img_threats')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <hr>
+
                         </div>
                         <hr>
                         <div class="card-body">

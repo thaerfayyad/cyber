@@ -5,11 +5,12 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Book;
 use App\Models\admin\Layers;
+use App\Models\admin\Threat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
-class layersController extends Controller
+class threatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +19,8 @@ class layersController extends Controller
      */
     public function index()
     {
-      $items  = Layers::all();
-        return view('admin.layers.home',
-        [
-            'items' =>$items,
-        ]);
+        $items = Threat::all();
+        return view('admin.threats.home',compact('items'));
     }
 
     /**
@@ -32,8 +30,8 @@ class layersController extends Controller
      */
     public function create()
     {
-
-        return view('admin.layers.create');
+        $layers = Layers::all();
+        return view('admin.threats.create',compact('layers'));
     }
 
     /**
@@ -45,11 +43,27 @@ class layersController extends Controller
     public function store(Request $request)
     {
 //        dd($request->all());
+        $request->validate([
+            'title_threats'         => 'required|max:255',
+            'layer_id'                 => 'required',
+            'descriptions_threats'  => 'required',
+            'img_threats'           => 'required |image|mimes:jpg,png',
+         ]);
+        $threat = new Threat();
+        $threat->title_threats =$request->title_threats ;
+        $threat->layer_id =$request->layer_id;
+        $threat->descriptions_threats =$request->descriptions_threats ;
 
-        $layer = new Layers();
-        $layer->name =$request->layer ;
+        if(  $request->img_threats != Null){
+            $imgName = $threat->id.'_layer'.time().'.'.request()->img_threats->getClientOriginalExtension();
 
-        $layer->save();
+            $request->img_threats->move('uploads/images/layers',$imgName);
+
+
+            $threat->img_threats = $imgName;
+        }
+
+        $threat->save();
 
         return redirect()->back();
     }
@@ -73,9 +87,10 @@ class layersController extends Controller
      */
     public function edit($id)
     {
-        $layer = Layers::findOrFail($id);
+        $threat = Threat::findOrFail($id);
+        $layers = Layers::all();
 
-        return view('admin.layers.edit' , compact('layer'));
+        return view('admin.threats.edit' , compact('threat','layers'));
     }
 
     /**
@@ -89,12 +104,10 @@ class layersController extends Controller
     {
 //        dd($request->all());
 
-        $layer = Layers::findOrFail($id);
+        $layer = Threat::findOrFail($id);
         $layer->title_threats =$request->title_threats ;
-        $layer->layer =$request->layer;
+        $layer->layer_id =$request->layer_id;
         $layer->descriptions_threats =$request->descriptions_threats ;
-        $layer->title_protocol =$request->title_protocol ;
-        $layer->descriptions_protocol =$request->descriptions_protocol ;
 
         if(  $request->img_threats != Null){
             $imgName = $layer->id.'_layer'.time().'.'.request()->img_threats->getClientOriginalExtension();
